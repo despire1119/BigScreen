@@ -40,7 +40,8 @@ module.exports = {
       }
     },
     externals: {
-      'AMap': 'AMap'
+      'AMap': 'AMap',
+      'Loca': 'Loca'
     }
   },
   chainWebpack: config => {

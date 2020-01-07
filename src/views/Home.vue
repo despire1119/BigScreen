@@ -12,6 +12,7 @@
 
 <script>
 import AMap from 'AMap'
+import Loca from 'Loca'
 export default {
   name: 'Home',
   components: {},
@@ -19,35 +20,60 @@ export default {
     return {}
   },
   mounted() {
-    const opts = {
-      subdistrict: 0,
-      extensions: 'all',
-      level: 'city'
-    }
     const map = new AMap.Map('container', {
       mapStyle: 'amap://styles/grey',
-      center: [116.397428, 39.90923],
+      center: [118.78, 32.07],
       resizeEnable: true,
-      zoom: 10,
+      zoom: 7
     })
-    // var map = new AMap.Map("container", {
-    //         mask: mask,
-    //         center: [122.36024, 40.30534],
-    //         disableSocket: true,
-    //         viewMode: "3D",
-    //         showLabel: false,
-    //         labelzIndex: 130,
-    //         pitch: 40,
-    //         zoom: 8,
-    //         layers: [
-    //           new AMap.TileLayer.RoadNet({
-    //             //rejectMapMask:true
-    //           }),
-    //           new AMap.TileLayer.Satellite()
-    //         ]
-    //       });
+    const layer = new Loca.HeatmapLayer({
+      map: map
+    })
+
+    layer.setData([
+      {'lnglat': [118.781322, 32.073416]},
+      {'lnglat': [119.781322, 31.073416]},
+      {'lnglat': [118.782322, 34.573416]},
+      {'lnglat': [118.816329, 32.073416]},
+      {'lnglat': [118.781329, 32.273416]},
+      {'lnglat': [118.784929, 32.173416]},
+      {'lnglat': [118.781829, 32.973416]},
+      {'lnglat': [118.781829, 32.973416]},
+      {'lnglat': [118.651829, 32.4573416]},
+      {'lnglat': [118.5481829, 32.463416]},
+      {'lnglat': [118.421829, 32.373416]},
+      {'lnglat': [118.781829, 32.273416]},
+      {'lnglat': [118.781829, 32.853416]},
+      {'lnglat': [118.781829, 32.973416]},
+      {'lnglat': [118.781829, 32.973416]},
+      {'lnglat': [118.789829, 31.973416]},
+      {'lnglat': [119.783829, 33.973416]},
+      {'lnglat': [113.781829, 32.973416]},
+      {'lnglat': [115.782829, 35.973416]},
+      {'lnglat': [98.781829, 39.973416]},
+      {'lnglat': [128.781829, 41.973416]},
+      {'lnglat': [123.781829, 32.973416]},
+    ], {
+      lnglat: 'lnglat',
+    })
+    layer.setOptions({
+      style: {
+        // 热力半径，单位：像素
+        radius: 9,
+        opacity: [0.1, 0.8],
+        // 颜色范围
+        color: {
+          1: '#f0f9e8',
+          0.8: '#bae4bc',
+          0.6: '#7bccc4',
+          0.4: '#43a2ca',
+          0.2: '#0868ac'
+        }
+      }
+    })
+    layer.render()
     AMap.plugin(['AMap.ToolBar', 'AMap.Scale'], function() {
-      map.addControl(new AMap.ToolBar())
+      // map.addControl(new AMap.ToolBar())
       map.addControl(new AMap.Scale())
     })
   },
