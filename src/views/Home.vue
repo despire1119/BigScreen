@@ -107,6 +107,66 @@
 import AMap from 'AMap'
 // import Loca from 'Loca'
 import axios from 'axios'
+const option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: { // 坐标轴指示器，坐标轴触发有效
+      type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+    }
+  },
+  legend: {
+    data: ['直接访问', '邮件营销', '联盟广告', '视频广告']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value'
+  },
+  yAxis: {
+    type: 'category',
+    data: ['南京支队', '无锡支队', '常州支队', '苏州支队', '淮安支队', '徐州支队', '南通支队']
+  },
+  series: [
+    {
+      name: '处罚量',
+      type: 'bar',
+      stack: '总量',
+      barWidth: 20,
+      label: {
+        show: true,
+        position: 'insideRight'
+      },
+      itemStyle: {
+        normal: {
+          show: true,
+          width: 1
+        }
+      },
+      data: [320, 302, 301, 334, 390, 330, 320]
+    },
+
+    {
+      name: '检查量',
+      type: 'bar',
+      stack: '总量',
+      label: {
+        show: true,
+        position: 'insideRight'
+      },
+      itemStyle: {
+        normal: {
+          show: true,
+          barBorderRadius: [0, 5, 5, 0]
+        }
+      },
+      data: [820, 832, 901, 934, 1290, 1330, 1320]
+    }
+  ]
+}
 export default {
   name: 'Home',
   components: {},
@@ -114,6 +174,7 @@ export default {
     return {
       adCode: 320000,
       depth: 2,
+
       options: {
         tooltip: {
           trigger: 'item'
