@@ -260,54 +260,72 @@ import axios from 'axios'
 
 const sunData = [
   {
-    name: 'Grandpa',
+    name: '道路',
     children: [
       {
-        name: 'Uncle Leo',
+        name: '道路',
         value: 15,
         children: [
           {
-            name: 'Cousin Jack',
-            value: 2
-          },
-          {
-            name: 'Cousin Mary',
+            name: '超载超限',
             value: 5,
             children: [
               {
-                name: 'Jackson',
-                value: 2
+                name: '线上',
+                value: 4
+              },
+              {
+                name: '现场',
+                value: 1
               }
             ]
           },
           {
-            name: 'Cousin Ben',
+            name: '资质不符',
+            value: 5,
+            children: [
+              {
+                name: '营运执照',
+                value: 3
+              },
+              {
+                name: '驾驶员证件',
+                value: 1
+              },
+              {
+                name: '车辆报废',
+                value: 1
+              }
+            ]
+          },
+          {
+            name: '道路泄撒',
             value: 4
           }
         ]
       },
       {
-        name: 'Aunt Jane',
+        name: '水上',
         children: [
           {
-            name: 'Cousin Kate',
+            name: '营运证缺失',
             value: 4
           }
         ]
       },
       {
-        name: 'Father',
+        name: '工程监管',
         value: 10,
         children: [
           {
-            name: 'Me',
+            name: '危化品',
             value: 5,
             itemStyle: {
               color: 'red'
             }
           },
           {
-            name: 'Brother Peter',
+            name: '硬件不达标',
             value: 1
           }
         ]
@@ -315,7 +333,7 @@ const sunData = [
     ]
   },
   {
-    name: 'Mike',
+    name: '水路',
     children: [
       {
         name: 'Uncle Dan',
@@ -339,7 +357,7 @@ const sunData = [
     ]
   },
   {
-    name: 'Nancy',
+    name: '工程监管',
     children: [
       {
         name: 'Uncle Nike',
