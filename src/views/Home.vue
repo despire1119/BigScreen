@@ -1,212 +1,344 @@
 <template>
   <div class="home">
-    <div class="top-bar"></div>
+    <div class="top-bar">
+      <span class="title">江苏省执法局数据驾驶舱</span>
+      <span class="logo">
+        <img src="@/assets/images/logo.png">
+      </span>
+      <span class="time-stamp">2020年1月7日 12:35:33</span>
+    </div>
     <div class="body">
-      <div class="left-area">1</div>
-      <div class="linkage-area">
-        <div class="map">
-          <div id="container" style="height: 500px" />
+      <div class="left-area">
+        <div class="model">
+          <ul class="list-content">
+            <li class="panel-list">
+              <div class="data-panel">
+                <div class="to-right-line">
+                  <p class="count">1595件</p>
+                  <p class="des">当日行政检查</p>
+                  <p class="chain chain-up">
+                    <i>8.7%</i>
+                    <span />
+                  </p>
+                </div>
+                <p style="display:flex;justify-content:center">
+                  <button class="go-chart">查看趋势</button>
+                </p>
+              </div>
+              <div id="chart1" class="chart" />
+            </li>
+            <li class="panel-list">
+              <div class="data-panel">
+                <div class="to-right-line">
+                  <p class="count">149件</p>
+                  <p class="des">当日行政处罚</p>
+                  <p class="chain chain-down">
+                    <i>-1.7%</i>
+                    <span />
+                  </p>
+                </div>
+                <p style="display:flex;justify-content:center">
+                  <button class="go-chart">查看趋势</button>
+                </p>
+              </div>
+              <div id="chart2" class="chart" />
+            </li>
+            <li class="panel-list">
+              <div class="data-panel">
+                <div class="to-right-line">
+                  <p class="count">92件</p>
+                  <p class="des">当日行政强制</p>
+                  <p class="chain chain-up">
+                    <i>8.7%</i>
+                    <span />
+                  </p>
+                </div>
+                <p style="display:flex;justify-content:center">
+                  <button class="go-chart">查看趋势</button>
+                </p>
+              </div>
+              <div id="chart3" class="chart" />
+            </li>
+            <li class="panel-list">
+              <div class="data-panel">
+                <div class="to-right-line">
+                  <p class="count">10320元</p>
+                  <p class="des">当日处罚总金额</p>
+                  <p class="chain chain-up">
+                    <i>8.7%</i>
+                    <span />
+                  </p>
+                </div>
+                <p style="display:flex;justify-content:center">
+                  <button class="go-chart">查看趋势</button>
+                </p>
+              </div>
+              <div id="chart4" class="chart" />
+            </li>
+          </ul>
+        </div>
+        <div class="model">
+          <div style="flex:1">
+            <div class="panel">
+              <span class="tit">支队检查案件</span>
+              <ul class="range-opt">
+                <li class="range year">最近一年</li>
+                <li class="range mounth">最近一月</li>
+                <li class="range day">当日</li>
+              </ul>
+            </div>
+            <div id="cases" class="case-bar" />
+          </div>
         </div>
       </div>
-      <div class="right-area">3</div>
+      <div class="linkage-area">
+        <div class="map">
+          <div id="container" style="height: 732px" />
+        </div>
+      </div>
+      <div class="right-area">
+        <div class="model">
+          <div style="flex: 1">
+            <div class="panel">
+              <span class="tit">信息速查</span>
+              <span class="search">
+                <input type="text">
+                <!-- <input type="text"> -->
+                <i class="tag" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import AMap from "AMap";
-import Loca from "Loca";
+import AMap from 'AMap'
+// import Loca from 'Loca'
+import axios from 'axios'
+
 export default {
-  name: "Home",
+  name: 'Home',
   components: {},
   data() {
     return {
       adCode: 320000,
-      depth: 2
-    };
-  },
-  mounted() {
-    // const map = new AMap.Map("container", {
-    //   mapStyle: "amap://styles/grey",
-    //   center: [118.78, 32.07],
-    //   resizeEnable: true,
-    //   pitch: 0,
-    //   zoom: 6,
-    //   viewMode: "2D"
-    // });
-    // var opts = {
-    //   subdistrict: 0,
-    //   extensions: "all",
-    //   level: "city"
-    // };
-    // //利用行政区查询获取边界构建mask路径
-    // //也可以直接通过经纬度构建mask路径
-    // var district = new AMap.DistrictSearch(opts);
-    // district.search("江苏省", (status, result) => {
-    //   var bounds = result.districtList[0].boundaries;
-    //   var mask = [];
-    //   for (var i = 0; i < bounds.length; i += 1) {
-    //     mask.push([bounds[i]]);
-    //   }
-    //   var map = new AMap.Map("container", {
-    //     mapStyle: "amap://styles/grey",
-    //     mask: mask,
-    //     center: [119.82, 32.17],
-    //     disableSocket: true,
-    //     viewMode: "3D",
-    //     showLabel: true,
-    //     labelzIndex: 130,
-    //     pitch: 40,
-    //     zoom: 7.6,
-    //     // layers: [
-    //     //   new AMap.TileLayer.RoadNet({
-    //     //     // rejectMapMask:true
-    //     //   }),
-    //     //   new AMap.TileLayer.Satellite(),
-    //     //   new AMap.TileLayer.Traffic()
-    //     // ]
-    //   });
-    //   // const layer = new Loca.HeatmapLayer({
-    //   //   map: map
-    //   // });
-    //   // layer.setData(
-    //   //   [
-    //   //     { lnglat: [118.781322, 32.073416], value: 1 },
-    //   //     { lnglat: [119.781322, 31.073416] },
-    //   //     { lnglat: [118.782322, 34.573416] },
-    //   //     { lnglat: [118.816329, 32.073416] },
-    //   //     { lnglat: [118.781329, 32.273416] },
-    //   //     { lnglat: [118.784929, 32.173416] },
-    //   //     { lnglat: [118.781829, 32.973416] },
-    //   //     { lnglat: [118.781829, 32.973416] },
-    //   //     { lnglat: [118.651829, 32.4573416] },
-    //   //     { lnglat: [118.5481829, 32.463416] },
-    //   //     { lnglat: [118.421829, 32.373416] },
-    //   //     { lnglat: [118.781829, 32.273416] },
-    //   //     { lnglat: [118.781829, 32.853416] },
-    //   //     { lnglat: [118.781829, 32.973416] },
-    //   //     { lnglat: [118.781829, 32.973416] },
-    //   //     { lnglat: [118.789829, 31.973416] },
-    //   //     { lnglat: [119.783829, 33.973416] },
-    //   //     { lnglat: [113.781829, 32.973416] },
-    //   //     { lnglat: [115.782829, 35.973416] },
-    //   //     { lnglat: [98.781829, 39.973416], value: 0 }
-    //   //   ],
-    //   //   {
-    //   //     lnglat: "lnglat"
-    //   //   }
-    //   // );
-    //   // layer.setOptions({
-    //   //   style: {
-    //   //     // 热力半径，单位：像素
-    //   //     radius: 16,
-    //   //     opacity: [0.1, 0.8],
-    //   //     // 颜色范围
-    //   //     color: {
-    //   //       0.5: "#2c7bb6",
-    //   //       0.65: "#abd9e9",
-    //   //       0.7: "#ffffbf",
-    //   //       0.9: "#fde468",
-    //   //       1.0: "#d7191c"
-    //   //     }
-    //   //   }
-    //   // });
-    //   var maskerIn = new AMap.Marker({
-    //     position: [116.501415, 39.926055],
-    //     map: map
-    //   });
-    //   var maskerOut = new AMap.Marker({
-    //     //区域外的不会显示
-    //     position: [117.001415, 39.926055],
-    //     map: map
-    //   });
-    //   //添加高度面
-    //   var object3Dlayer = new AMap.Object3DLayer({ zIndex: 1 });
-    //   map.add(object3Dlayer);
-    //   var height = -8000;
-    //   var color = "#0088ffcc"; //rgba
-    //   var wall = new AMap.Object3D.Wall({
-    //     path: bounds,
-    //     height: height,
-    //     color: color
-    //   });
-    //   wall.transparent = true;
-    //   object3Dlayer.add(wall);
-    //   //添加描边
-    //   for (var i = 0; i < bounds.length; i += 1) {
-    //     new AMap.Polyline({
-    //       path: bounds[i],
-    //       strokeColor: "#5a6d96",
-    //       strokeWeight: 2,
-    //       map: map
-    //     });
-    //   }
-    // });
-    // // layer.render();
+      depth: 2,
+      option: {
+        // visualMap: {
+        //   top: 10,
+        //   right: 10,
+        //   pieces: [{
+        //     color:'#FFCA8D'
+        //   },{
+        //     color: '#0C80DA'
+        //   }]
+        // },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+          }
+        },
+        grid: {
+          top: '0',
+          left: '3%',
+          right: '3%',
+          bottom: '0',
+          containLabel: true
+        },
+        xAxis: {
+          type: 'value',
+          show: false
+        },
+        yAxis: {
+          type: 'category',
+          data: [
+            '南京支队',
+            '无锡支队',
+            '常州支队',
+            '苏州支队',
+            '淮安支队',
+            '徐州支队',
+            '南通支队'
+          ],
+          axisLabel: {
+            show: true,
+            textStyle: {
+              color: '#fff'
+            }
+          }
+        },
+        series: [
+          {
+            name: '处罚量',
+            type: 'bar',
+            stack: '总量',
+            barWidth: 10,
+            label: {
+              show: true,
+              position: 'insideRight'
+            },
+            itemStyle: {
+              normal: {
+                show: true,
+                width: 10,
+                color: new this.echarts.graphic.LinearGradient(0, 0, 1, 1, [
+                  { offset: 0, color: '#F4724E' }, // 柱图渐变色
+                  { offset: 0.5, color: '#F4724E' }, // 柱图渐变色
+                  { offset: 1, color: '#FFCA8D' } // 柱图渐变色
+                ])
+              }
+            },
+            data: [320, 302, 301, 334, 390, 330, 320]
+          },
 
-    const map = new AMap.Map("container", {
-      mapStyle: "amap://styles/blue",
+          {
+            name: '检查量',
+            type: 'bar',
+            stack: '总量',
+            label: {
+              show: true,
+              position: 'insideRight'
+            },
+            itemStyle: {
+              normal: {
+                show: true,
+                barBorderRadius: [0, 5, 5, 0],
+                color: new this.echarts.graphic.LinearGradient(0, 0, 1, 1, [
+                  { offset: 0, color: '#0C80DA' }, // 柱图渐变色
+                  { offset: 0.3, color: '#0C80DA' }, // 柱图渐变色
+                  { offset: 1, color: '#16ECE8' } // 柱图渐变色
+                ])
+              }
+            },
+            data: [820, 832, 901, 934, 1290, 1330, 1320]
+          }
+        ]
+      },
+      options: {
+        tooltip: {
+          trigger: 'item'
+        },
+        grid: {
+          top: '10%',
+          right: '0',
+          bottom: '15%',
+          left: '8%'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['道路', '工程', '水上'],
+          lineStyle: {
+            color: '#CCCCCC',
+            width: 0,
+            type: 'solid'
+          },
+          axisLabel: {
+            show: true,
+            rotate: 40,
+            textStyle: {
+              color: '#CCC',
+              fontSize: '12'
+            }
+          }
+        },
+        yAxis: {
+          axisLine: {
+            show: false
+          },
+          axisTick: {
+            show: false
+          },
+          splitNumber: 7,
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: ['#33395A'],
+              width: 1,
+              type: 'solid'
+            }
+          }
+        },
+        series: [
+          {
+            name: '案件量',
+            type: 'bar',
+            data: [120, 60, 1300],
+            barWidth: 10,
+            label: {
+              show: true,
+              position: 'top',
+              color: '#CCC'
+            },
+            itemStyle: {
+              normal: {
+                show: true,
+                barBorderRadius: [5, 5, 0, 0],
+                color: params => {
+                  const colorList = ['#2091A9', '#2967BA', '#7D28C2']
+                  return colorList[params.dataIndex]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  computed: {},
+  mounted() {
+    // 地图初始化
+    const map = new AMap.Map('container', {
+      mapStyle: 'amap://styles/darkblue',
       center: [119.82, 32.27],
-      viewMode: "3D",
+      viewMode: '3D',
       pitch: 35,
-      zoom: 7.5
-    }),
-    layer = new Loca.HeatmapLayer({
-      map: map
-    });
-    layer.setData(
-      [
-        { lnglat: [118.781322, 32.073416], value: 1 },
-        { lnglat: [119.781322, 31.073416] },
-        { lnglat: [118.782322, 34.573416] },
-        { lnglat: [118.816329, 32.073416] },
-        { lnglat: [118.781329, 32.273416] },
-        { lnglat: [118.784929, 32.173416] },
-        { lnglat: [118.781829, 32.973416] },
-        { lnglat: [118.781829, 32.973416] },
-        { lnglat: [118.651829, 32.4573416] },
-        { lnglat: [118.5481829, 32.463416] },
-        { lnglat: [118.421829, 32.373416] },
-        { lnglat: [118.781829, 32.273416] },
-        { lnglat: [118.781829, 32.853416] },
-        { lnglat: [118.781829, 32.973416] },
-        { lnglat: [118.781829, 32.973416] },
-        { lnglat: [118.789829, 31.973416] },
-        { lnglat: [119.783829, 33.973416] },
-        { lnglat: [113.781829, 32.973416] },
-        { lnglat: [115.782829, 35.973416] },
-        { lnglat: [98.781829, 39.973416], value: 0 }
-      ],
-      {
-        lnglat: "lnglat"
-      }
-    );
-    layer.setOptions({
-      style: {
-        // 热力半径，单位：像素
-        radius: 16,
-        opacity: [0.1, 0.8],
-        // 颜色范围
-        color: {
-          0.5: "#2c7bb6",
-          0.65: "#abd9e9",
-          0.7: "#ffffbf",
-          0.9: "#fde468",
-          1.0: "#d7191c"
-        }
-      }
-    });
-    AMap.plugin(["AMap.Scale", "AMap.DistrictLayer"], () => {
-      map.addControl(new AMap.Scale());
+      zoom: 7.8
+    })
+    map.plugin(['AMap.Scale', 'AMap.DistrictLayer'], () => {
+      map.addControl(new AMap.Scale())
       // map.addControl(new AMap.DistrictLayer());
-      //省份图层
-      this.initPro(this.adCode, this.depth).setMap(map);
-    });
+      // 省份图层
+      this.initPro(this.adCode, this.depth).setMap(map)
+    })
+    // 图表初始化
+    // model1
+    const chart1 = this.echarts.init(document.getElementById('chart1'))
+    const chart2 = this.echarts.init(document.getElementById('chart2'))
+    const chart3 = this.echarts.init(document.getElementById('chart3'))
+    const chart4 = this.echarts.init(document.getElementById('chart4'))
+    // model2
+    const cases = this.echarts.init(document.getElementById('cases'))
+
+    chart1.setOption(this.options)
+    chart2.setOption(this.changOption([3, 9, 52]))
+    chart3.setOption(this.changOption([1, 5, 2]))
+    chart4.setOption(this.changOption([2052, 2246, 3200]))
+    cases.setOption(this.option)
   },
   methods: {
+    async upload(e) {
+      const param = new FormData()
+      const file = e.target.files[0]
+      param.append('image', file)
+      param.append('auth_type', 1)
+      param.append('account', 's40792088')
+      param.append('password', 'Aixin00261')
+      param.append('webinar_id', '635366168')
+      console.log(param.get('file'))
+      const res = await axios.post(
+        'http://e.vhall.com/api/vhallapi/v2/webinar/activeimage',
+        param
+      )
+      console.log(res)
+    },
     initPro(code, dep) {
-      this.adCode = code;
-      this.depth = dep;
+      this.adCode = code
+      this.depth = dep
       return new AMap.DistrictLayer.Province({
         zIndex: 12,
         adcode: [code],
@@ -218,40 +350,177 @@ export default {
             // adcode_pro
             // adcode_cit
             // adcode
-            var adcode = properties.adcode;
-            return this.getColorByAdcode(adcode);
+            var adcode = properties.adcode
+            return this.getColorByAdcode(adcode)
           },
-          "province-stroke": "cornflowerblue",
-          "city-stroke": "white", // 中国地级市边界
-          "county-stroke": "rgba(255,255,255,1)" // 中国区县边界
+          'province-stroke': 'cornflowerblue',
+          'city-stroke': 'white', // 中国地级市边界
+          'county-stroke': 'rgba(255,255,255,0.5)' // 中国区县边界
         }
-      });
+      })
     },
     getColorByAdcode(adcode) {
-      var gb = Math.random() * 155 + 50;
-      return `rgba(${gb},${gb},255,.5)`;
+      var gb = Math.random() * 155 + 50
+      return `rgb(${gb},${gb},255)`
+    },
+    changOption(data) {
+      const opt = this.options
+      opt.series[0]['data'] = data
+      return opt
     }
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
+.top-bar
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 92px
+  background-image: url('~@/assets/images/top-bar.jpg')
+  background-repeat: no-repeat
+  background-position: center center
+  .logo
+    position: absolute
+    display: inline-block
+    top: 54px
+    left: 27px
+    width: 74px
+    height: 19px
+    img
+      width: 100%
+      height: 100%
+  .time-stamp
+    position: absolute
+    top: 58px
+    right: 42px
+    font-weight: 500
+    font-size: 16px
+    color: rgba(103, 206, 235, 1)
+  .title
+    font-size: 36px
+    font-weight: bold
+    color: #24B4DC
 .body
   display: flex
   justify-content: space-around
   padding: 0 27px
   .left-area
     width: 510px
-    padding: 10px
-    background-color: #fff
   .linkage-area
-    background-color: #fff
     flex: 1
     margin: 0 12px
     .map
       width: 100%
-      height: 500px
+      height: 732px
+      box-shadow:0px 0px 7px 0px rgba(0, 0, 0, 0.35);
   .right-area
     width: 510px
-    background-color: #fff
     padding: 10
+.model
+  display: flex
+  color: #fff
+  background-color: #19203D
+  margin-bottom: 10px
+  box-shadow:0px 0px 7px 0px rgba(0, 0, 0, 0.35);
+  .panel
+    flex: 1
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 14px 12px
+    .tit
+      font-size: 18px
+      font-weight: 500
+      color: #ffffff
+    .range-opt
+      display: flex
+      .range
+        width: 72px
+        height: 24px
+        line-height: 24px
+        color: #fff
+        text-align: center
+        font-size: 14px
+        border: 1px dashed #fff
+        border-radius: 4px
+        &:not(:last-child)
+          margin-right: 12px
+      .year
+        background-color: rgba(41, 131, 240, 0.43)
+      .mounth
+        background-color: rgba(30, 214, 142, 0.43)
+      .day
+        background-color: rgba(165, 53, 251, 0.43)
+    .search
+      display flex
+      width 146px
+      height 28px
+      background-color #1E243D
+      border 1px solid #21C7DE
+      border-radius 14px
+      align-items center
+      padding-right 8px
+      input
+        width 118px
+        color #CCC
+        text-indent 10px
+      .tag
+        display block
+        width 18px
+        height 18px
+        background-image url('~@/assets/images/sousuo@2x.png')
+        background-size contain
+  .case-bar
+    height: 293px
+  .list-content
+    display: flex
+    justify-content: space-around
+  .panel-list
+    width: 127px
+    &:not(:last-child)
+      .to-right-line
+        border-right: 1px solid #2D344D
+    .data-panel
+      padding-top: 41px
+      .count
+        text-align: center
+        color: #ffffff
+        font-size: 24px
+        font-weight: bold
+        font-family: Source Han Sans CN
+      .des
+        text-align: center
+        font-size: 14px
+        color: #ccc
+      .chain
+        font-size: 16px
+        text-align: center
+        line-height: 16px
+        span
+          width: 11px
+          height: 17px
+          display: inline-block
+      .chain-up
+        color: #FF1B22
+        span
+          background-image: url('~@/assets/images/shang.png')
+      .chain-down
+        color: #57E418
+        span
+          background-image: url('~@/assets/images/xia.png')
+      .go-chart
+        margin-top: 8px
+        width: 102px
+        height: 28px
+        text-align: center
+        color: #ffffff
+        font-size: 14px
+        font-weight: 500
+        background-color: #1F3F7F
+        border-radius: 4px
+    .chart
+      height: 220px
+      padding: 0 20px
 </style>

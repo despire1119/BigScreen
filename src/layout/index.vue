@@ -1,9 +1,9 @@
 <template>
   <div>
-    <transition name="fade-transform" mode="out-in">
-      <!-- <router-view :key="key" /> -->
-      <router-view />
-    </transition>
+    <!-- <transition name="fade-transform" mode="out-in"> -->
+    <!-- <router-view :key="key" /> -->
+    <router-view />
+    <!-- </transition> -->
   </div>
 </template>
 <script>
