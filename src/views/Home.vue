@@ -90,6 +90,69 @@
             <div id="cases" class="case-bar" />
           </div>
         </div>
+        <div class="model">
+          <div class="panel">
+            <span class="tit">案件办理效率</span>
+            <ul class="range-opt">
+                <li class="range year">最近一年</li>
+                <li class="range mounth">最近一月</li>
+                <li class="range day">当日</li>
+              </ul>
+          </div>
+          <div class="table-area">
+            <table>
+              <tr class="table-header">
+                <th>部门</th>
+                <th>行政检查</th>
+                <th>行政处罚</th>
+                <th>人均案件量</th>
+                <th>阳性率</th>
+              </tr>
+              <tr>
+                <td>南京支队</td>
+                <td>1302</td>
+                <td>476</td>
+                <td>12</td>
+                <td>8.29</td>
+              </tr>
+              <tr>
+                <td>宿迁支队</td>
+                <td>1242</td>
+                <td>416</td>
+                <td>5</td>
+                <td>3.88</td>
+              </tr>
+              <tr>
+                <td>徐州支队</td>
+                <td>1204</td>
+                <td>386</td>
+                <td>1</td>
+                <td>2.18</td>
+              </tr>
+              <tr>
+                <td>无锡支队</td>
+                <td>1152</td>
+                <td>322</td>
+                <td>4</td>
+                <td>2.09</td>
+              </tr>
+              <tr>
+                <td>苏州支队</td>
+                <td>1109</td>
+                <td>216</td>
+                <td>3</td>
+                <td>1.39</td>
+              </tr>
+              <tr>
+                <td>淮安支队</td>
+                <td>802</td>
+                <td>139</td>
+                <td>3</td>
+                <td>3.46</td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
       <div class="linkage-area">
         <div class="map" style="margin-bottom: 10px">
@@ -656,6 +719,21 @@ export default {
   background-color: #19203D
   margin-bottom: 10px
   box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
+  .table-area
+    height 196px
+    overflow auto
+    position relative
+    &::-webkit-scrollbar
+      display none
+    table
+      margin-bottom 10px
+      th
+        padding 10px 0
+        background-color #283052
+      td
+        padding 10px 0
+        text-align center
+        border-bottom 1px solid #33395A
   .panel
     flex: 1
     display: flex
