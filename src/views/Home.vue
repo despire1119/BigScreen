@@ -150,6 +150,51 @@ export default {
       viewMode: "3D",
       pitch: 35,
       zoom: 7.5
+    }),
+    layer = new Loca.HeatmapLayer({
+      map: map
+    });
+    layer.setData(
+      [
+        { lnglat: [118.781322, 32.073416], value: 1 },
+        { lnglat: [119.781322, 31.073416] },
+        { lnglat: [118.782322, 34.573416] },
+        { lnglat: [118.816329, 32.073416] },
+        { lnglat: [118.781329, 32.273416] },
+        { lnglat: [118.784929, 32.173416] },
+        { lnglat: [118.781829, 32.973416] },
+        { lnglat: [118.781829, 32.973416] },
+        { lnglat: [118.651829, 32.4573416] },
+        { lnglat: [118.5481829, 32.463416] },
+        { lnglat: [118.421829, 32.373416] },
+        { lnglat: [118.781829, 32.273416] },
+        { lnglat: [118.781829, 32.853416] },
+        { lnglat: [118.781829, 32.973416] },
+        { lnglat: [118.781829, 32.973416] },
+        { lnglat: [118.789829, 31.973416] },
+        { lnglat: [119.783829, 33.973416] },
+        { lnglat: [113.781829, 32.973416] },
+        { lnglat: [115.782829, 35.973416] },
+        { lnglat: [98.781829, 39.973416], value: 0 }
+      ],
+      {
+        lnglat: "lnglat"
+      }
+    );
+    layer.setOptions({
+      style: {
+        // 热力半径，单位：像素
+        radius: 16,
+        opacity: [0.1, 0.8],
+        // 颜色范围
+        color: {
+          0.5: "#2c7bb6",
+          0.65: "#abd9e9",
+          0.7: "#ffffbf",
+          0.9: "#fde468",
+          1.0: "#d7191c"
+        }
+      }
     });
     AMap.plugin(["AMap.Scale", "AMap.DistrictLayer"], () => {
       map.addControl(new AMap.Scale());
@@ -178,13 +223,13 @@ export default {
           },
           "province-stroke": "cornflowerblue",
           "city-stroke": "white", // 中国地级市边界
-          "county-stroke": "rgba(255,255,255,0.5)" // 中国区县边界
+          "county-stroke": "rgba(255,255,255,1)" // 中国区县边界
         }
       });
     },
     getColorByAdcode(adcode) {
       var gb = Math.random() * 155 + 50;
-      return `rgb(${gb},${gb},255)`;
+      return `rgba(${gb},${gb},255,.5)`;
     }
   }
 };
