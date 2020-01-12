@@ -94,10 +94,10 @@
           <div class="panel">
             <span class="tit">案件办理效率</span>
             <ul class="range-opt">
-                <li class="range year">最近一年</li>
-                <li class="range mounth">最近一月</li>
-                <li class="range day">当日</li>
-              </ul>
+              <li class="range year">最近一年</li>
+              <li class="range mounth">最近一月</li>
+              <li class="range day">当日</li>
+            </ul>
           </div>
           <div class="table-area">
             <table>
@@ -237,6 +237,17 @@
             </div>
           </div>
         </div>
+        <div class="model">
+          <div class="panel">
+            <span class="tit">案件特征分析</span>
+            <ul class="range-opt">
+              <li class="range year">最近一年</li>
+              <li class="range mounth">最近一月</li>
+              <li class="range day">当日</li>
+            </ul>
+          </div>
+          <div id="sun-map" class="sun-map" />
+        </div>
       </div>
     </div>
   </div>
@@ -247,6 +258,106 @@ import AMap from 'AMap'
 // import Loca from 'Loca'
 import axios from 'axios'
 
+const sunData = [
+  {
+    name: 'Grandpa',
+    children: [
+      {
+        name: 'Uncle Leo',
+        value: 15,
+        children: [
+          {
+            name: 'Cousin Jack',
+            value: 2
+          },
+          {
+            name: 'Cousin Mary',
+            value: 5,
+            children: [
+              {
+                name: 'Jackson',
+                value: 2
+              }
+            ]
+          },
+          {
+            name: 'Cousin Ben',
+            value: 4
+          }
+        ]
+      },
+      {
+        name: 'Aunt Jane',
+        children: [
+          {
+            name: 'Cousin Kate',
+            value: 4
+          }
+        ]
+      },
+      {
+        name: 'Father',
+        value: 10,
+        children: [
+          {
+            name: 'Me',
+            value: 5,
+            itemStyle: {
+              color: 'red'
+            }
+          },
+          {
+            name: 'Brother Peter',
+            value: 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: 'Mike',
+    children: [
+      {
+        name: 'Uncle Dan',
+        children: [
+          {
+            name: 'Cousin Lucy',
+            value: 3
+          },
+          {
+            name: 'Cousin Luck',
+            value: 4,
+            children: [
+              {
+                name: 'Nephew',
+                value: 2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: 'Nancy',
+    children: [
+      {
+        name: 'Uncle Nike',
+        children: [
+          {
+            name: 'Cousin Betty',
+            value: 1
+          },
+          {
+            name: 'Cousin Jenny',
+            value: 2
+          }
+        ]
+      }
+    ]
+  }
+]
+
 export default {
   name: 'Home',
   components: {},
@@ -254,6 +365,25 @@ export default {
     return {
       adCode: 320000,
       depth: 2,
+      sunOpt: {
+        visualMap: {
+          type: 'continuous',
+          min: 0,
+          max: 10,
+          inRange: {
+            color: ['#2D5F73', '#538EA6', '#F2D1B3', '#F2B8A2', '#F28C8C']
+          }
+        },
+        series: {
+          type: 'sunburst',
+          data: sunData,
+          radius: [0, '90%'],
+          label: {
+            rotate: 'radial'
+          }
+        }
+      },
+
       rankOpt: {
         tooltip: {
           trigger: 'axis',
@@ -271,7 +401,7 @@ export default {
         },
         legend: {
           orient: 'vertical',
-          right: '0',
+          right: '1%',
           data: ['日间', '夜间', '总量'],
           textStyle: {
             color: '#FFFFFF'
@@ -609,12 +739,16 @@ export default {
     const cases = this.echarts.init(document.getElementById('cases'))
     // rank
     const rank = this.echarts.init(document.getElementById('analysis'))
+    const sun = this.echarts.init(document.getElementById('sun-map'))
+
     chart1.setOption(this.options)
     chart2.setOption(this.changOption([3, 9, 52]))
     chart3.setOption(this.changOption([1, 5, 2]))
     chart4.setOption(this.changOption([2052, 2246, 3200]))
     cases.setOption(this.option)
     rank.setOption(this.rankOpt)
+    // sun
+    sun.setOption(this.sunOpt)
   },
   methods: {
     async upload(e) {
@@ -719,21 +853,24 @@ export default {
   background-color: #19203D
   margin-bottom: 10px
   box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
+  .sun-map
+    flex: 1
+    height: 400px
   .table-area
-    height 196px
-    overflow auto
-    position relative
+    height: 196px
+    overflow: auto
+    position: relative
     &::-webkit-scrollbar
-      display none
+      display: none
     table
-      margin-bottom 10px
+      margin-bottom: 10px
       th
-        padding 10px 0
-        background-color #283052
+        padding: 10px 0
+        background-color: #283052
       td
-        padding 10px 0
-        text-align center
-        border-bottom 1px solid #33395A
+        padding: 10px 0
+        text-align: center
+        border-bottom: 1px solid #33395A
   .panel
     flex: 1
     display: flex
