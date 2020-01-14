@@ -10,7 +10,19 @@
  */
 export class BezierCurve {
   constructor(config) {
-    this.ele = document.querySelector(config.tag)
+    // this.ele = document.querySelector(config.tag)
+    this.ele = (() => {
+      const canvas = document.createElement('canvas')
+      document.querySelector('#canvas').appendChild(canvas)
+      canvas.width = '1336'
+      canvas.height = '730'
+      canvas.style.position = 'absolute'
+      canvas.style.top = '0'
+      canvas.style.right = '0'
+      canvas.style.bottom = '0'
+      canvas.style.left = '0'
+      return canvas
+    })()
     this.ctx = this.ele.getContext('2d')
     this.width = config.width || '1336'
     this.height = config.width || '730'
@@ -19,6 +31,7 @@ export class BezierCurve {
     this.curveness = config.curveness || 0
     this.percent = config.percent || 0
     this.speed = Number(config.speed) || 1.5
+    this.opacity = 1
   }
 
   // 贝塞尔曲线运算，返回切面点
@@ -29,7 +42,7 @@ export class BezierCurve {
       (origin[ 1 ] + target[ 1 ]) / 2 - (target[ 0 ] - origin[ 0 ]) * this.curveness
     ]
 
-    const t = this.percent && this.percent / 100 || 0 // 系数
+    const t = this.percent && this.percent / 100 || 100 // 系数
 
     const [p0, p1, p2] = [origin, cp, target]
 
@@ -70,9 +83,24 @@ export class BezierCurve {
     this.ctx.lineWidth = 1
     this.ctx.strokeStyle = this.color
     this.ctx.stroke()
+    this.ctx.globalAlpha = this.opacity
     this.ctx.closePath()
     this.percent = (this.percent + this.speed) % 100
+    // this.opacity = this.percent>90?this.opacity-this.percent/100:1
     const toEnd = requestAnimationFrame(_ => this.lineMove(origin, target))
-    if (this.percent + this.speed >= 100) cancelAnimationFrame(toEnd)
+    if (this.percent + this.speed >= 100) {
+      cancelAnimationFrame(toEnd)
+      // setTimeout(() => {
+      //   this.opacity = 0
+      //   this.lineMove(origin, target)
+      // }, 1000);
+    }
+  }
+  moveOut(){
+    this.ctx.beginPath()
+    this.ctx.globalAlpha = this.poacity
+    this.poacity -= 0.1
+    const id = requestAnimationFrame(this.moveOut)
+    if(this.poacity < 0) cancelAnimationFrame(id)
   }
 }

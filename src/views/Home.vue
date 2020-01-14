@@ -254,8 +254,8 @@
         </div>
       </div>
     </div>
-    <div ref="cover" class="animation-cover" >
-      <canvas width="1336" height="730" id='canvas'></canvas>
+    <div id="canvas" ref="cover" class="animation-cover">
+      <!-- <canvas width="1336" height="730"></canvas> -->
     </div>
   </div>
 </template>
@@ -751,36 +751,61 @@ export default {
   },
   computed: {},
   mounted() {
-    // const canvas = document.createElement('canvas')
-    // document.querySelector('#canvas').appendChild(canvas)
-    // canvas.width = '1336'
-    // canvas.height = '730'
-    // canvas.style.position = 'absolute'
-    // canvas.style.top = '0'
-    // canvas.style.right = '0'
-    // canvas.style.bottom = '0'
-    // canvas.style.left = '0'
-    // canvas.id = 'cc123'
     const bezier = new BezierCurve({
       tag: '#canvas',
       radius: 4,
       color: '#27cefe',
       curveness: -0.4,
       percent: 0,
-      speed: 1
+      speed: 1.2
     })
-    // const bez = new BezierCurve({
-    //   tag: '#canvas',
-    //   radius: 4,
-    //   color: '#27cefe',
-    //   curveness: -0.5,
-    //   percent: 0,
-    //   speed: 1
-    // })
+    const bez = new BezierCurve({
+      tag: '#canvas',
+      radius: 4,
+      color: '#27cefe',
+      curveness: -0.5,
+      percent: 0,
+      speed: 1.2
+    })
+    const bbb = new BezierCurve({
+      tag: '#canvas',
+      radius: 4,
+      color: '#27cefe',
+      curveness: -0.5,
+      percent: 0,
+      speed: 1.2
+    })
+    const ccc = new BezierCurve({
+      tag: '#canvas',
+      radius: 4,
+      color: '#27cefe',
+      curveness: -0.5,
+      percent: 0,
+      speed: 1.2
+    })
+    const ddd = new BezierCurve({
+      tag: '#canvas',
+      radius: 4,
+      color: '#27cefe',
+      curveness: -0.5,
+      percent: 0,
+      speed: 1.2
+    })
     setTimeout(() => {
-      bezier.lineMove([1200, 400], [66, 200])
-      // bez.lineMove([1140, 530], [66, 200])
+      ccc.lineMove([800, 350], [156, 340])
+    }, 5200)
+    setTimeout(() => {
+      bezier.lineMove([1200, 400], [72, 198])
     }, 3500)
+    setTimeout(() => {
+      bez.lineMove([1140, 530], [200, 205])
+    }, 2000)
+    setTimeout(() => {
+      bbb.lineMove([980, 190], [26, 340])
+    }, 4000)
+    setTimeout(() => {
+      ddd.lineMove([920, 430], [306, 180])
+    }, 6000);
     // 地图初始化
     const map = new AMap.Map('container', {
       mapStyle: 'amap://styles/4ab0161fdad52fd5c833bd3cb16bafec',
