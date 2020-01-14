@@ -64,9 +64,9 @@ export class Ball {
   drawLine(startPoint, end) {
     this.ctx.beginPath()
     // 起始点
-    this.ctx.moveTo(...end)
+    this.ctx.moveTo(...startPoint)
     // 二次贝塞尔
-    this.ctx.quadraticCurveTo(end[0] + 70, -400, ...startPoint)
+    this.ctx.quadraticCurveTo(end[0] + 70, -250, ...end)
     this.ctx.lineWidth = 1
     this.ctx.strokeStyle = this.color
     this.ctx.stroke()
