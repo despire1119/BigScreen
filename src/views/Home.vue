@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="top-bar">
-      <span class="title">江苏省执法局数据驾驶舱</span>
+      <span class="title">江苏省执法局数据决策驾驶舱</span>
       <span class="logo">
         <img src="@/assets/images/logo.png">
       </span>
@@ -182,7 +182,11 @@
             </div>
             <div class="container">
               <div class="img">
-                <img src alt>
+                <img
+                  style="width: 100%; height: 100%"
+                  src="@/assets/images/pic2571578885543.jpg"
+                  alt
+                >
               </div>
               <div class="row">
                 <p>
@@ -250,6 +254,9 @@
         </div>
       </div>
     </div>
+    <div ref="cover" class="animation-cover">
+      <canvas id="canvas" width="1336" height="730" />
+    </div>
   </div>
 </template>
 
@@ -257,6 +264,7 @@
 import AMap from 'AMap'
 // import Loca from 'Loca'
 import axios from 'axios'
+import { Ball } from '@/utils/animation'
 
 const sunData = [
   {
@@ -588,9 +596,17 @@ export default {
         grid: {
           top: '0',
           left: '3%',
-          right: '3%',
+          right: '30%',
           bottom: '0',
           containLabel: true
+        },
+        legend: {
+          orient: 'vertical',
+          right: '1%',
+          data: ['检查', '处罚'],
+          textStyle: {
+            color: '#FFFFFF'
+          }
         },
         xAxis: {
           type: 'value',
@@ -616,48 +632,50 @@ export default {
         },
         series: [
           {
-            name: '处罚量',
+            name: '检查',
             type: 'bar',
             stack: '总量',
             barWidth: 10,
             label: {
-              show: true,
+              show: false,
+              position: 'insideRight'
+            },
+            itemStyle: {
+              normal: {
+                show: true,
+                color: new this.echarts.graphic.LinearGradient(0, 0, 1, 1, [
+                  { offset: 0, color: '#0C80DA' }, // 柱图渐变色
+                  // { offset: 0.4, color: '#0C80DA' }, // 柱图渐变色
+                  { offset: 1, color: '#234BE1' } // 柱图渐变色
+                ])
+                // color: ''
+              }
+            },
+            data: [820, 832, 901, 934, 1290, 1330, 1320]
+          },
+          {
+            name: '处罚',
+            type: 'bar',
+            stack: '总量',
+            barWidth: 10,
+            label: {
+              show: false,
               position: 'insideRight'
             },
             itemStyle: {
               normal: {
                 show: true,
                 width: 10,
-                color: new this.echarts.graphic.LinearGradient(0, 0, 1, 1, [
-                  { offset: 0, color: '#F4724E' }, // 柱图渐变色
-                  { offset: 0.5, color: '#F4724E' }, // 柱图渐变色
-                  { offset: 1, color: '#FFCA8D' } // 柱图渐变色
-                ])
+                barBorderRadius: [0, 0, 0, 0],
+                // color: new this.echarts.graphic.LinearGradient(0, 0, 1, 1, [
+                //   { offset: 0, color: '#F4724E' }, // 柱图渐变色
+                //   { offset: 0.4, color: '#F4724E' }, // 柱图渐变色
+                //   { offset: 1, color: '#FFCA8D' } // 柱图渐变色
+                // ])
+                color: '#16E9E8'
               }
             },
             data: [320, 302, 301, 334, 390, 330, 320]
-          },
-
-          {
-            name: '检查量',
-            type: 'bar',
-            stack: '总量',
-            label: {
-              show: true,
-              position: 'insideRight'
-            },
-            itemStyle: {
-              normal: {
-                show: true,
-                barBorderRadius: [0, 5, 5, 0],
-                color: new this.echarts.graphic.LinearGradient(0, 0, 1, 1, [
-                  { offset: 0, color: '#0C80DA' }, // 柱图渐变色
-                  { offset: 0.3, color: '#0C80DA' }, // 柱图渐变色
-                  { offset: 1, color: '#16ECE8' } // 柱图渐变色
-                ])
-              }
-            },
-            data: [820, 832, 901, 934, 1290, 1330, 1320]
           }
         ]
       },
@@ -733,9 +751,25 @@ export default {
   },
   computed: {},
   mounted() {
+    var ball = new Ball({
+      tag: '#canvas',
+      x: 100,
+      y: 200,
+      vx: -6,
+      vy: -10,
+      radius: 4,
+      gravity: 0.6,
+      color: '#27cefe'
+    })
+    // ball.drawPoint([100, 200])
+    // ball.drawLine([100, 200], [400, 400])
+    setTimeout(() => {
+      ball.drawMivie()
+      // ball.linear()
+    }, 3500)
     // 地图初始化
     const map = new AMap.Map('container', {
-      mapStyle: 'amap://styles/darkblue',
+      mapStyle: 'amap://styles/4ab0161fdad52fd5c833bd3cb16bafec',
       center: [119.82, 32.27],
       viewMode: '3D',
       pitch: 35,
@@ -808,8 +842,8 @@ export default {
       })
     },
     getColorByAdcode(adcode) {
-      var gb = Math.random() * 155 + 50
-      return `rgb(${gb},${gb},255)`
+      // var gb = Math.random() * 155 + 50
+      return '#263153'
     },
     changOption(data) {
       const opt = this.options
@@ -820,195 +854,223 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+.home
+  position relative
+.animation-cover
+  position absolute
+  top 94px
+  left 27px
+  width 1336px
+  height 730px
+  // background-color rgba(0, 0, 0, 0.5)
+  pointer-events none
+  .goods-title
+    position absolute
+    width 10px
+    height 10px
+    background-color #fff
+    left 1000px
+    bottom 200px
+  .shopping-cart
+    position absolute
+    width 10px
+    height 10px
+    background-color #fff
+    left 100px
+    top 200px
+  .move
+    width 10px
+    height 10px
+    background-color red
 .top-bar
-  position: relative
-  display: flex
-  justify-content: center
-  align-items: center
-  height: 92px
-  background-image: url('~@/assets/images/top-bar.jpg')
-  background-repeat: no-repeat
-  background-position: center center
+  position relative
+  display flex
+  justify-content center
+  align-items center
+  height 92px
+  background-image url('~@/assets/images/top-bar.jpg')
+  background-repeat no-repeat
+  background-position center center
   .logo
-    position: absolute
-    display: inline-block
-    top: 54px
-    left: 27px
-    width: 74px
-    height: 19px
+    position absolute
+    display inline-block
+    top 54px
+    left 27px
+    width 74px
+    height 19px
     img
-      width: 100%
-      height: 100%
+      width 100%
+      height 100%
   .time-stamp
-    position: absolute
-    top: 58px
-    right: 42px
-    font-weight: 500
-    font-size: 16px
-    color: rgba(103, 206, 235, 1)
+    position absolute
+    top 58px
+    right 42px
+    font-weight 500
+    font-size 16px
+    color rgba(103, 206, 235, 1)
   .title
-    font-size: 36px
-    font-weight: bold
-    color: #24B4DC
+    font-size 36px
+    font-weight bold
+    color #24B4DC
 .body
-  display: flex
-  justify-content: space-around
-  padding: 0 27px
+  display flex
+  justify-content space-around
+  padding 0 27px
   .left-area
-    width: 510px
+    width 510px
   .linkage-area
-    flex: 1
-    margin: 0 12px
+    flex 1
+    margin 0 12px
     .map
-      width: 100%
-      height: 732px
-      box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
+      width 100%
+      height 732px
+      box-shadow 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
   .right-area
-    width: 510px
-    padding: 10
+    width 510px
+    padding 10
 .model
-  color: #fff
-  background-color: #19203D
-  margin-bottom: 10px
-  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
+  color #fff
+  background-color #19203D
+  margin-bottom 10px
+  box-shadow 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
   .sun-map
-    flex: 1
-    height: 400px
+    flex 1
+    height 400px
   .table-area
-    height: 196px
-    overflow: auto
-    position: relative
+    height 196px
+    overflow auto
+    position relative
     &::-webkit-scrollbar
-      display: none
+      display none
     table
-      margin-bottom: 10px
+      margin-bottom 10px
       th
-        padding: 10px 0
-        background-color: #283052
+        padding 10px 0
+        background-color #283052
       td
-        padding: 10px 0
-        text-align: center
-        border-bottom: 1px solid #33395A
+        padding 10px 0
+        text-align center
+        border-bottom 1px solid #33395A
   .panel
-    flex: 1
-    display: flex
-    justify-content: space-between
-    align-items: center
-    padding: 14px 12px
+    flex 1
+    display flex
+    justify-content space-between
+    align-items center
+    padding 14px 12px
     .tit
-      font-size: 18px
-      font-weight: 500
-      color: #ffffff
+      font-size 18px
+      font-weight 500
+      color #ffffff
     .range-opt
-      display: flex
+      display flex
       .range
-        width: 72px
-        height: 24px
-        line-height: 24px
-        color: #fff
-        text-align: center
-        font-size: 14px
-        border: 1px dashed #fff
-        border-radius: 4px
+        width 72px
+        height 24px
+        line-height 24px
+        color #fff
+        text-align center
+        font-size 14px
+        border 1px dashed #fff
+        border-radius 4px
         &:not(:last-child)
-          margin-right: 12px
+          margin-right 12px
       .year
-        background-color: rgba(41, 131, 240, 0.43)
+        background-color rgba(41, 131, 240, 0.43)
       .mounth
-        background-color: rgba(30, 214, 142, 0.43)
+        background-color rgba(30, 214, 142, 0.43)
       .day
-        background-color: rgba(165, 53, 251, 0.43)
+        background-color rgba(165, 53, 251, 0.43)
     .search
-      display: flex
-      width: 146px
-      height: 28px
-      background-color: #1E243D
-      border: 1px solid #21C7DE
-      border-radius: 14px
-      align-items: center
-      padding-right: 8px
+      display flex
+      width 146px
+      height 28px
+      background-color #1E243D
+      border 1px solid #21C7DE
+      border-radius 14px
+      align-items center
+      padding-right 8px
       input
-        width: 118px
-        color: #CCC
-        text-indent: 10px
+        width 118px
+        color #CCC
+        text-indent 10px
       .tag
-        display: block
-        width: 18px
-        height: 18px
-        background-image: url('~@/assets/images/sousuo@2x.png')
-        background-size: contain
+        display block
+        width 18px
+        height 18px
+        background-image url('~@/assets/images/sousuo@2x.png')
+        background-size contain
   .container
-    display: flex
-    justify-content: space-around
-    margin-bottom: 9px
+    display flex
+    justify-content space-around
+    margin-bottom 9px
     .img
-      width: 142px
-      height: 107px
-      background-color: #CCC
+      width 142px
+      height 107px
+      background-color #CCC
     .row
       p
-        margin-bottom: 5px
+        margin-bottom 5px
   .bottom
-    display: flex
-    align-items: center
-    justify-content: space-around
-    height: 50px
-    font-size: 14px
-    font-weight: 500
-    background-color: #2172F9
+    display flex
+    align-items center
+    justify-content space-around
+    height 50px
+    font-size 14px
+    font-weight 500
+    background-color rgba(33, 114, 249, 0.35)
     .fee
-      font-size: 16px
+      font-size 16px
   .cases-analysis
-    height: 195px
+    height 195px
   .case-bar
-    height: 293px
+    height 293px
   .list-content
-    display: flex
-    justify-content: space-around
+    display flex
+    justify-content space-around
   .panel-list
-    width: 127px
+    width 127px
     &:not(:last-child)
       .to-right-line
-        border-right: 1px solid #2D344D
+        border-right 1px solid #2D344D
     .data-panel
-      padding-top: 41px
+      padding-top 41px
       .count
-        text-align: center
-        color: #ffffff
-        font-size: 24px
-        font-weight: bold
-        font-family: Source Han Sans CN
+        text-align center
+        color #ffffff
+        font-size 24px
+        font-weight bold
+        font-family Source Han Sans CN
       .des
-        text-align: center
-        font-size: 14px
-        color: #ccc
+        text-align center
+        font-size 14px
+        color #ccc
       .chain
-        font-size: 16px
-        text-align: center
-        line-height: 16px
+        font-size 16px
+        text-align center
+        line-height 16px
         span
-          width: 11px
-          height: 17px
-          display: inline-block
+          width 11px
+          height 17px
+          display inline-block
       .chain-up
-        color: #FF1B22
+        color #FF1B22
         span
-          background-image: url('~@/assets/images/shang.png')
+          background-image url('~@/assets/images/shang.png')
       .chain-down
-        color: #57E418
+        color #57E418
         span
-          background-image: url('~@/assets/images/xia.png')
+          background-image url('~@/assets/images/xia.png')
       .go-chart
-        margin-top: 8px
-        width: 102px
-        height: 28px
-        text-align: center
-        color: #ffffff
-        font-size: 14px
-        font-weight: 500
-        background-color: #1F3F7F
-        border-radius: 4px
+        margin-top 8px
+        width 102px
+        height 28px
+        text-align center
+        color #ffffff
+        font-size 14px
+        font-weight 500
+        background-color #1F3F7F
+        border-radius 4px
     .chart
-      height: 220px
-      padding: 0 20px
+      height 220px
+      padding 0 20px
 </style>
