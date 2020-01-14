@@ -254,8 +254,8 @@
         </div>
       </div>
     </div>
-    <div ref="cover" class="animation-cover">
-      <canvas id="canvas" width="1336" height="730" />
+    <div ref="cover" class="animation-cover" >
+      <canvas width="1336" height="730" id='canvas'></canvas>
     </div>
   </div>
 </template>
@@ -264,7 +264,7 @@
 import AMap from 'AMap'
 // import Loca from 'Loca'
 import axios from 'axios'
-import { Ball } from '@/utils/animation'
+import { BezierCurve } from '@/utils/animation'
 
 const sunData = [
   {
@@ -751,21 +751,35 @@ export default {
   },
   computed: {},
   mounted() {
-    var ball = new Ball({
+    // const canvas = document.createElement('canvas')
+    // document.querySelector('#canvas').appendChild(canvas)
+    // canvas.width = '1336'
+    // canvas.height = '730'
+    // canvas.style.position = 'absolute'
+    // canvas.style.top = '0'
+    // canvas.style.right = '0'
+    // canvas.style.bottom = '0'
+    // canvas.style.left = '0'
+    // canvas.id = 'cc123'
+    const bezier = new BezierCurve({
       tag: '#canvas',
-      x: 100,
-      y: 200,
-      vx: -6,
-      vy: -10,
       radius: 4,
-      gravity: 0.6,
-      color: '#27cefe'
+      color: '#27cefe',
+      curveness: -0.4,
+      percent: 0,
+      speed: 1
     })
-    // ball.drawPoint([100, 200])
-    // ball.drawLine([100, 200], [400, 400])
+    // const bez = new BezierCurve({
+    //   tag: '#canvas',
+    //   radius: 4,
+    //   color: '#27cefe',
+    //   curveness: -0.5,
+    //   percent: 0,
+    //   speed: 1
+    // })
     setTimeout(() => {
-      ball.drawMivie()
-      // ball.linear()
+      bezier.lineMove([1200, 400], [66, 200])
+      // bez.lineMove([1140, 530], [66, 200])
     }, 3500)
     // 地图初始化
     const map = new AMap.Map('container', {
@@ -864,24 +878,12 @@ export default {
   height 730px
   // background-color rgba(0, 0, 0, 0.5)
   pointer-events none
-  .goods-title
+  canvas
     position absolute
-    width 10px
-    height 10px
-    background-color #fff
-    left 1000px
-    bottom 200px
-  .shopping-cart
-    position absolute
-    width 10px
-    height 10px
-    background-color #fff
-    left 100px
-    top 200px
-  .move
-    width 10px
-    height 10px
-    background-color red
+    top 0
+    right 0
+    left 0
+    bottom 0
 .top-bar
   position relative
   display flex
