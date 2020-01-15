@@ -242,6 +242,12 @@
           </div>
         </div>
         <div class="model">
+          <div class="img-area">
+            <div class="img-contain"><img src="@/assets/images/chufa2x.png" alt=""></div>
+            <div class="img-contain"><img src="@/assets/images/qiye2x.png" alt=""></div>
+          </div>
+        </div>
+        <div class="model">
           <div class="panel">
             <span class="tit">案件特征分析</span>
             <ul class="range-opt">
@@ -262,8 +268,9 @@
 
 <script>
 import AMap from 'AMap'
-// import Loca from 'Loca'
+import Loca from 'Loca'
 import axios from 'axios'
+import { heatmapData } from '@/mockData/heatmapData.js'
 import { BezierCurve } from '@/utils/animation'
 
 const sunData = [
@@ -749,7 +756,9 @@ export default {
       }
     }
   },
-  computed: {},
+  computed: {
+
+  },
   mounted() {
     const bezier = new BezierCurve({
       tag: '#canvas',
@@ -805,7 +814,7 @@ export default {
     }, 4000)
     setTimeout(() => {
       ddd.lineMove([920, 430], [306, 180])
-    }, 6000);
+    }, 6000)
     // 地图初始化
     const map = new AMap.Map('container', {
       mapStyle: 'amap://styles/4ab0161fdad52fd5c833bd3cb16bafec',
@@ -814,6 +823,19 @@ export default {
       pitch: 35,
       zoom: 7.8
     })
+    const layer = new Loca.HeatmapLayer({
+      map: map
+    })
+    layer.setData(this.heatData(), {
+      lnglat: 'lnglat'
+    })
+    layer.setOptions({
+      style: {
+        radius: 30,
+        opacity: [0.1, 0.8]
+      }
+    })
+    layer.render()
     map.plugin(['AMap.Scale', 'AMap.DistrictLayer'], () => {
       map.addControl(new AMap.Scale())
       // map.addControl(new AMap.DistrictLayer());
@@ -888,6 +910,14 @@ export default {
       const opt = this.options
       opt.series[0]['data'] = data
       return opt
+    },
+    heatData() {
+      return heatmapData.map(item => {
+        return {
+          lnglat: [item.lng + 3.5, item.lat - 7.7],
+          value: item.count
+        }
+      })
     }
   }
 }
@@ -960,9 +990,16 @@ export default {
   background-color #19203D
   margin-bottom 10px
   box-shadow 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
+  .img-area
+    display flex
+    justify-content space-between
+    .img-contain
+      width 260px
+      img
+        width 100%
   .sun-map
     flex 1
-    height 400px
+    height 410px
   .table-area
     height 196px
     overflow auto

@@ -30,8 +30,9 @@ export class BezierCurve {
     this.color = config.color || '#FCFF0E'
     this.curveness = config.curveness || 0
     this.percent = config.percent || 0
-    this.speed = Number(config.speed) || 1.5
+    this.speed = Number(config.speed) || 1
     this.opacity = 1
+    this.timeStamp = []
   }
 
   // 贝塞尔曲线运算，返回切面点
@@ -71,13 +72,11 @@ export class BezierCurve {
   }
   // 运动轨迹动画
   lineMove(origin, target) {
-    // const q0 = this.drawLine(origin, target).q0
-    // const b = this.drawLine(origin, target).b
     const { q0, b } = { ...this.drawLine(origin, target) }
     this.ctx.clearRect(0, 0, this.ele.width, this.ele.height)
     // this.drawPoint(b) // 动画终点
 
-    if(this.percent + this.speed < 100){
+    if (this.percent + this.speed < 100) {
       this.drawPoint(origin)
       this.ctx.beginPath()
       this.ctx.moveTo(...origin) // 起点
@@ -86,27 +85,41 @@ export class BezierCurve {
       this.ctx.strokeStyle = this.color
       this.ctx.stroke()
       this.percent = (this.percent + this.speed) % 100
-    }else{
+    } else {
       cancelAnimationFrame(toEnd)
       this.ctx.globalAlpha = this.opacity
-      this.opacity-= 0.0000001
+      this.opacity -= 0.0000001
     }
     this.ctx.closePath()
     // this.opacity = this.percent>90?this.opacity-this.percent/100:1
     const toEnd = requestAnimationFrame(_ => this.lineMove(origin, target))
     if (this.percent + this.speed >= 100) {
       cancelAnimationFrame(toEnd)
-      setTimeout(() => {
+      const final = setTimeout(() => {
         this.opacity = 0
         this.lineMove(origin, target)
-      }, 1000);
+        clearTimeout(final)
+        this.ele.remove()
+      }, 1000)
     }
   }
-  moveOut(){
+  moveOut() {
     this.ctx.beginPath()
     this.ctx.globalAlpha = this.poacity
     this.poacity -= 0.1
     const id = requestAnimationFrame(this.moveOut)
-    if(this.poacity < 0) cancelAnimationFrame(id)
+    if (this.poacity < 0) cancelAnimationFrame(id)
+  }
+}
+
+export class animRender {
+  constructor() {
+    this.count = 0
+  }
+  renderMain(callback) {
+    requestAnimationFrame(_ => {
+      callback()
+      this.count++
+    })
   }
 }
