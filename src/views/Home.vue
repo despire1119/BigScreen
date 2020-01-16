@@ -1,5 +1,5 @@
 <template>
-  <div class="home" style="width: 1920px">
+  <div class="home">
     <div class="top-bar">
       <span class="title">江苏省交通运输综合行政执法数据分析与监督窗</span>
       <span class="logo">
@@ -852,7 +852,7 @@ export default {
     const chart1 = this.echarts.init(document.getElementById('chart1'))
     const chart2 = this.echarts.init(document.getElementById('chart2'))
     const chart3 = this.echarts.init(document.getElementById('chart3'))
-    const chart4 = this.echarts.init(document.getElementById('chart4'))
+    // const chart4 = this.echarts.init(document.getElementById('chart4'))
     // model2
     const cases = this.echarts.init(document.getElementById('cases'))
     // rank
@@ -862,7 +862,7 @@ export default {
     chart1.setOption(this.options)
     chart2.setOption(this.changOption([3, 9, 52]))
     chart3.setOption(this.changOption([1, 5, 2]))
-    chart4.setOption(this.changOption([2052, 2246, 3200]))
+    // chart4.setOption(this.changOption([2052, 2246, 3200]))
     cases.setOption(this.option)
     rank.setOption(this.rankOpt)
     // sun
