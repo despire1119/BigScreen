@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="home" style="width: 1920px">
     <div class="top-bar">
-      <span class="title">江苏省执法局数据决策驾驶舱</span>
+      <span class="title">江苏省交通运输综合行政执法数据分析与监督窗</span>
       <span class="logo">
         <img src="@/assets/images/logo.png">
       </span>
@@ -59,7 +59,7 @@
               </div>
               <div id="chart3" class="chart" />
             </li>
-            <li class="panel-list">
+            <!-- <li class="panel-list">
               <div class="data-panel">
                 <div class="to-right-line">
                   <p class="count">10320元</p>
@@ -74,7 +74,7 @@
                 </p>
               </div>
               <div id="chart4" class="chart" />
-            </li>
+            </li> -->
           </ul>
         </div>
         <div class="model">
@@ -92,7 +92,7 @@
         </div>
         <div class="model">
           <div class="panel">
-            <span class="tit">案件办理效率</span>
+            <span class="tit">机构人均执法工作量</span>
             <ul class="range-opt">
               <li class="range year">最近一年</li>
               <li class="range mounth">最近一月</li>
@@ -102,10 +102,11 @@
           <div class="table-area">
             <table>
               <tr class="table-header">
-                <th>部门</th>
-                <th>行政检查</th>
-                <th>行政处罚</th>
-                <th>人均案件量</th>
+                <th>机构</th>
+                <th>总人数</th>
+                <th>执法岗位人数</th>
+                <th>人均行政检查（件）</th>
+                <th>人均行政处罚（件）</th>
                 <th>阳性率</th>
               </tr>
               <tr>
@@ -224,8 +225,12 @@
                   <i>10年</i>
                 </p>
                 <p>
-                  <span>发动机号：</span>
-                  <i>600328</i>
+                  <span>是否列入黑名单：</span>
+                  <i>否</i>
+                </p>
+                <p>
+                  <span>证书有效期：</span>
+                  <i>2023-12-12</i>
                 </p>
               </div>
             </div>
