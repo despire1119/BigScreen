@@ -23,6 +23,14 @@ export default {
       normal: {
         borderColor: '#19203D'
       }
+    },
+    downplay: {
+      label: {
+        opacity: 0.5
+      },
+      itemStyle: {
+        opacity: 0.5
+      }
     }
   }
 }

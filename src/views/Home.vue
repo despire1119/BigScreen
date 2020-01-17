@@ -352,19 +352,19 @@ export default {
       this.initPro(this.adCode, this.depth).setMap(map)
     })
     map.on('complete', () => {
-      setTimeout(() => {
+      setInterval(() => {
         ccc.lineMove([800, 350], [156, 340])
       }, 5200)
-      setTimeout(() => {
+      setInterval(() => {
         bezier.lineMove([1200, 400], [72, 198])
       }, 3500)
-      setTimeout(() => {
+      setInterval(() => {
         bez.lineMove([1140, 530], [200, 205])
       }, 2000)
-      setTimeout(() => {
+      setInterval(() => {
         bbb.lineMove([980, 190], [26, 340])
       }, 4000)
-      setTimeout(() => {
+      setInterval(() => {
         ddd.lineMove([920, 430], [306, 180])
       }, 6000)
     })

@@ -101,7 +101,7 @@ export class BezierCurve {
         this.opacity = 0
         this.lineMove(origin, target)
         clearTimeout(final)
-        this.ele.remove()
+        // this.ele.remove()
       }, 1000)
     }
   }
