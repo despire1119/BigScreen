@@ -18,7 +18,7 @@ export default {
   legend: {
     orient: 'vertical',
     right: '1%',
-    data: ['检查', '处罚'],
+    data: ['检查', '处罚', '强制'],
     textStyle: {
       color: '#FFFFFF'
     }
@@ -30,8 +30,8 @@ export default {
   yAxis: {
     type: 'category',
     data: [
-      '南京支队',
-      '无锡支队',
+      '总队南京支队',
+      '总队苏州支队',
       '常州支队',
       '苏州支队',
       '淮安支队',
@@ -87,10 +87,34 @@ export default {
           //   { offset: 0.4, color: '#F4724E' }, // 柱图渐变色
           //   { offset: 1, color: '#FFCA8D' } // 柱图渐变色
           // ])
-          color: '#16E9E8'
+          color: '#E6C34D'
         }
       },
       data: [320, 302, 301, 334, 390, 330, 320]
+    },
+    {
+      name: '处罚',
+      type: 'bar',
+      stack: '总量',
+      barWidth: 10,
+      label: {
+        show: false,
+        position: 'insideRight'
+      },
+      itemStyle: {
+        normal: {
+          show: true,
+          width: 10,
+          barBorderRadius: [0, 0, 0, 0],
+          // color: new echarts.graphic.LinearGradient(0, 0, 1, 1, [
+          //   { offset: 0, color: '#F4724E' }, // 柱图渐变色
+          //   { offset: 0.4, color: '#F4724E' }, // 柱图渐变色
+          //   { offset: 1, color: '#FFCA8D' } // 柱图渐变色
+          // ])
+          color: '#DB4B4B'
+        }
+      },
+      data: [32, 32, 31, 34, 30, 33, 32]
     }
   ]
 }

@@ -5,15 +5,24 @@ export default {
     min: 0,
     max: 50000,
     inRange: {
-      color: ['#2D5F73', '#538EA6', '#F2D1B3', '#F2B8A2', '#F28C8C']
+      color: ['#f9bd33', '#2858d9', '#2091a9', '#7d28c2', '#5c7ffd']
+    },
+    textStyle: {
+      color: '#fff'
     }
   },
   series: {
     type: 'sunburst',
     data: SunData,
-    radius: [0, '100%'],
+    radius: [0, '95%'],
     label: {
-      rotate: 'radial'
+      rotate: 'radial',
+      minAngle: 5
+    },
+    itemStyle: {
+      normal: {
+        borderColor: '#19203D'
+      }
     }
   }
 }

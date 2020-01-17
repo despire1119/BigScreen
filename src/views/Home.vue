@@ -81,11 +81,11 @@
           <div style="flex:1">
             <div class="panel">
               <span class="tit">支队检查案件</span>
-              <ul class="range-opt">
+              <!-- <ul class="range-opt">
                 <li class="range year">最近一年</li>
                 <li class="range mounth">最近一月</li>
                 <li class="range day">当日</li>
-              </ul>
+              </ul> -->
             </div>
             <div id="cases" class="case-bar" />
           </div>
@@ -93,11 +93,11 @@
         <div class="model">
           <div class="panel">
             <span class="tit">机构人均执法工作量</span>
-            <ul class="range-opt">
+            <!-- <ul class="range-opt">
               <li class="range year">最近一年</li>
               <li class="range mounth">最近一月</li>
               <li class="range day">当日</li>
-            </ul>
+            </ul> -->
           </div>
           <div class="table-area">
             <table>
@@ -162,11 +162,11 @@
         <div class="model">
           <div class="panel">
             <span class="tit">案件数量分析图</span>
-            <ul class="range-opt">
+            <!-- <ul class="range-opt">
               <li class="range year">最近一年</li>
               <li class="range mounth">最近一月</li>
               <li class="range day">当日</li>
-            </ul>
+            </ul> -->
           </div>
           <div id="analysis" class="cases-analysis" />
         </div>
@@ -259,11 +259,11 @@
         <div class="model">
           <div class="panel">
             <span class="tit">案件特征分析</span>
-            <ul class="range-opt">
+            <!-- <ul class="range-opt">
               <li class="range year">最近一年</li>
               <li class="range mounth">最近一月</li>
               <li class="range day">当日</li>
-            </ul>
+            </ul> -->
           </div>
           <div id="sun-map" class="sun-map" />
         </div>

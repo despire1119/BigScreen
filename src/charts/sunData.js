@@ -5,11 +5,11 @@ export const SunData = [
     children: [
       {
         name: '运政',
-        value: 14990
+        value: 11990
       },
       {
         name: '航政',
-        value: 14020
+        value: 30020
       },
       {
         name: '港政',
@@ -31,7 +31,7 @@ export const SunData = [
         children: [
           {
             name: '高速公路',
-            value: 12440
+            value: 22440
           },
           {
             name: '普通公路',
@@ -61,7 +61,6 @@ export const SunData = [
   },
   {
     name: '质量',
-    value: 26309,
     children: [
       {
         name: '公路工程',
@@ -77,7 +76,7 @@ export const SunData = [
       },
       {
         name: '建设市场',
-        value: 11953
+        value: 21953
       }
     ]
   }
