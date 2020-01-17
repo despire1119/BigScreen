@@ -74,7 +74,7 @@
                 </p>
               </div>
               <div id="chart4" class="chart" />
-            </li> -->
+            </li>-->
           </ul>
         </div>
         <div class="model">
@@ -248,8 +248,12 @@
         </div>
         <div class="model">
           <div class="img-area">
-            <div class="img-contain"><img src="@/assets/images/chufa2x.png" alt=""></div>
-            <div class="img-contain"><img src="@/assets/images/qiye2x.png" alt=""></div>
+            <div class="img-contain">
+              <img src="@/assets/images/chufa2x.png" alt>
+            </div>
+            <div class="img-contain">
+              <img src="@/assets/images/qiye2x.png" alt>
+            </div>
           </div>
         </div>
         <div class="model">
@@ -275,495 +279,23 @@
 import AMap from 'AMap'
 import Loca from 'Loca'
 import axios from 'axios'
-import { heatmapData } from '@/mockData/heatmapData.js'
+import { heatmapData } from '@/mockData/heatmapData'
 import { BezierCurve } from '@/utils/animation'
-
-const sunData = [
-  {
-    name: '道路',
-    children: [
-      {
-        name: '道路',
-        value: 15,
-        children: [
-          {
-            name: '超载超限',
-            value: 5,
-            children: [
-              {
-                name: '线上',
-                value: 4
-              },
-              {
-                name: '现场',
-                value: 1
-              }
-            ]
-          },
-          {
-            name: '资质不符',
-            value: 5,
-            children: [
-              {
-                name: '营运执照',
-                value: 3
-              },
-              {
-                name: '驾驶员证件',
-                value: 1
-              },
-              {
-                name: '车辆报废',
-                value: 1
-              }
-            ]
-          },
-          {
-            name: '道路泄撒',
-            value: 4
-          }
-        ]
-      },
-      {
-        name: '水上',
-        children: [
-          {
-            name: '营运证缺失',
-            value: 4
-          }
-        ]
-      },
-      {
-        name: '工程监管',
-        value: 10,
-        children: [
-          {
-            name: '危化品',
-            value: 5,
-            itemStyle: {
-              color: 'red'
-            }
-          },
-          {
-            name: '硬件不达标',
-            value: 1
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name: '水路',
-    children: [
-      {
-        name: 'Uncle Dan',
-        children: [
-          {
-            name: 'Cousin Lucy',
-            value: 3
-          },
-          {
-            name: 'Cousin Luck',
-            value: 4,
-            children: [
-              {
-                name: 'Nephew',
-                value: 2
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    name: '工程监管',
-    children: [
-      {
-        name: 'Uncle Nike',
-        children: [
-          {
-            name: 'Cousin Betty',
-            value: 1
-          },
-          {
-            name: 'Cousin Jenny',
-            value: 2
-          }
-        ]
-      }
-    ]
-  }
-]
+import sunOpt from '@/charts/sunOpt'
+import rankOpt from '@/charts/rankOpt'
+import caseOpt from '@/charts/caseOpt'
+import typeOpt from '@/charts/typeOpt'
 
 export default {
   name: 'Home',
   components: {},
   data() {
     return {
-      adCode: 320000,
-      depth: 2,
-      sunOpt: {
-        visualMap: {
-          type: 'continuous',
-          min: 0,
-          max: 10,
-          inRange: {
-            color: ['#2D5F73', '#538EA6', '#F2D1B3', '#F2B8A2', '#F28C8C']
-          }
-        },
-        series: {
-          type: 'sunburst',
-          data: sunData,
-          radius: [0, '90%'],
-          label: {
-            rotate: 'radial'
-          }
-        }
-      },
-
-      rankOpt: {
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'cross',
-            crossStyle: {
-              color: '#999'
-            }
-          }
-        },
-        grid: {
-          top: '5%',
-          bottom: '15%',
-          left: '8%'
-        },
-        legend: {
-          orient: 'vertical',
-          right: '1%',
-          data: ['日间', '夜间', '总量'],
-          textStyle: {
-            color: '#FFFFFF'
-          }
-        },
-        xAxis: [
-          {
-            type: 'category',
-            data: [
-              '1月',
-              '2月',
-              '3月',
-              '4月',
-              '5月',
-              '6月',
-              '7月',
-              '8月',
-              '9月',
-              '10月',
-              '11月',
-              '12月'
-            ],
-            axisPointer: {
-              type: 'shadow'
-            },
-            lineStyle: {
-              color: '#505573',
-              type: 'solid'
-            },
-            axisLabel: {
-              show: true,
-              rotate: 40,
-              textStyle: {
-                color: '#B4B8C7',
-                fontSize: '12'
-              }
-            }
-          }
-        ],
-        yAxis: [
-          {
-            type: 'value',
-            name: '案件量',
-            lineStyle: {
-              color: '#505573',
-              type: 'solid'
-            },
-            axisLabel: {
-              show: true,
-              textStyle: {
-                color: '#B4B8C7',
-                fontSize: '12'
-              }
-            },
-            splitLine: {
-              show: true,
-              lineStyle: {
-                color: ['#505573'],
-                width: 1,
-                type: 'solid'
-              }
-            }
-          },
-          {
-            type: 'value',
-            show: false,
-            name: '案件量'
-          }
-        ],
-        series: [
-          {
-            name: '总量',
-            type: 'bar',
-            barWidth: 20,
-            data: [
-              2500,
-              4900,
-              3452,
-              2320,
-              2817,
-              2670,
-              2506,
-              2202,
-              3206,
-              2000,
-              1164,
-              1133
-            ],
-            itemStyle: {
-              normal: {
-                show: true,
-                width: 10,
-                color: new this.echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                  { offset: 1, color: '#5C61FD' }, // 柱图渐变色
-                  { offset: 0, color: '#67D9FF' } // 柱图渐变色
-                ])
-              }
-            }
-          },
-          {
-            name: '日间',
-            type: 'line',
-            data: [
-              2360,
-              2359,
-              2290,
-              1264,
-              2560,
-              1771,
-              1561,
-              1212,
-              2817,
-              1818,
-              710,
-              512
-            ],
-            itemStyle: {
-              normal: {
-                color: '#03CAFE'
-              }
-            }
-          },
-          {
-            name: '夜间',
-            type: 'line',
-            yAxisIndex: 1,
-            data: [
-              140,
-              1541,
-              1162,
-              1162,
-              1056,
-              899,
-              935,
-              990,
-              389,
-              182,
-              454,
-              621
-            ],
-            itemStyle: {
-              normal: {
-                color: '#1FD68E'
-              }
-            }
-          }
-        ]
-      },
-      option: {
-        // visualMap: {
-        //   top: 10,
-        //   right: 10,
-        //   pieces: [{
-        //     color:'#FFCA8D'
-        //   },{
-        //     color: '#0C80DA'
-        //   }]
-        // },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-          }
-        },
-        grid: {
-          top: '0',
-          left: '3%',
-          right: '30%',
-          bottom: '0',
-          containLabel: true
-        },
-        legend: {
-          orient: 'vertical',
-          right: '1%',
-          data: ['检查', '处罚'],
-          textStyle: {
-            color: '#FFFFFF'
-          }
-        },
-        xAxis: {
-          type: 'value',
-          show: false
-        },
-        yAxis: {
-          type: 'category',
-          data: [
-            '南京支队',
-            '无锡支队',
-            '常州支队',
-            '苏州支队',
-            '淮安支队',
-            '徐州支队',
-            '南通支队'
-          ],
-          axisLabel: {
-            show: true,
-            textStyle: {
-              color: '#fff'
-            }
-          }
-        },
-        series: [
-          {
-            name: '检查',
-            type: 'bar',
-            stack: '总量',
-            barWidth: 10,
-            label: {
-              show: false,
-              position: 'insideRight'
-            },
-            itemStyle: {
-              normal: {
-                show: true,
-                color: new this.echarts.graphic.LinearGradient(0, 0, 1, 1, [
-                  { offset: 0, color: '#0C80DA' }, // 柱图渐变色
-                  // { offset: 0.4, color: '#0C80DA' }, // 柱图渐变色
-                  { offset: 1, color: '#234BE1' } // 柱图渐变色
-                ])
-                // color: ''
-              }
-            },
-            data: [820, 832, 901, 934, 1290, 1330, 1320]
-          },
-          {
-            name: '处罚',
-            type: 'bar',
-            stack: '总量',
-            barWidth: 10,
-            label: {
-              show: false,
-              position: 'insideRight'
-            },
-            itemStyle: {
-              normal: {
-                show: true,
-                width: 10,
-                barBorderRadius: [0, 0, 0, 0],
-                // color: new this.echarts.graphic.LinearGradient(0, 0, 1, 1, [
-                //   { offset: 0, color: '#F4724E' }, // 柱图渐变色
-                //   { offset: 0.4, color: '#F4724E' }, // 柱图渐变色
-                //   { offset: 1, color: '#FFCA8D' } // 柱图渐变色
-                // ])
-                color: '#16E9E8'
-              }
-            },
-            data: [320, 302, 301, 334, 390, 330, 320]
-          }
-        ]
-      },
-      options: {
-        tooltip: {
-          trigger: 'item'
-        },
-        grid: {
-          top: '10%',
-          right: '0',
-          bottom: '15%',
-          left: '8%'
-        },
-        xAxis: {
-          type: 'category',
-          data: ['道路', '工程', '水上'],
-          lineStyle: {
-            color: '#CCCCCC',
-            width: 0,
-            type: 'solid'
-          },
-          axisLabel: {
-            show: true,
-            rotate: 40,
-            textStyle: {
-              color: '#CCC',
-              fontSize: '12'
-            }
-          }
-        },
-        yAxis: {
-          axisLine: {
-            show: false
-          },
-          axisTick: {
-            show: false
-          },
-          splitNumber: 7,
-          splitLine: {
-            show: true,
-            lineStyle: {
-              color: ['#33395A'],
-              width: 1,
-              type: 'solid'
-            }
-          }
-        },
-        series: [
-          {
-            name: '案件量',
-            type: 'bar',
-            data: [120, 60, 1300],
-            barWidth: 10,
-            label: {
-              show: true,
-              position: 'top',
-              color: '#CCC'
-            },
-            itemStyle: {
-              normal: {
-                show: true,
-                barBorderRadius: [5, 5, 0, 0],
-                color: params => {
-                  const colorList = ['#2091A9', '#2967BA', '#7D28C2']
-                  return colorList[params.dataIndex]
-                }
-              }
-            }
-          }
-        ]
-      }
+      adCode: 320000, // 江苏省行政区代码
+      depth: 2
     }
   },
-  computed: {
-
-  },
+  computed: {},
   mounted() {
     const bezier = new BezierCurve({
       tag: '#canvas',
@@ -805,21 +337,6 @@ export default {
       percent: 0,
       speed: 1.2
     })
-    setTimeout(() => {
-      ccc.lineMove([800, 350], [156, 340])
-    }, 5200)
-    setTimeout(() => {
-      bezier.lineMove([1200, 400], [72, 198])
-    }, 3500)
-    setTimeout(() => {
-      bez.lineMove([1140, 530], [200, 205])
-    }, 2000)
-    setTimeout(() => {
-      bbb.lineMove([980, 190], [26, 340])
-    }, 4000)
-    setTimeout(() => {
-      ddd.lineMove([920, 430], [306, 180])
-    }, 6000)
     // 地图初始化
     const map = new AMap.Map('container', {
       mapStyle: 'amap://styles/4ab0161fdad52fd5c833bd3cb16bafec',
@@ -827,6 +344,29 @@ export default {
       viewMode: '3D',
       pitch: 35,
       zoom: 7.8
+    })
+    map.plugin(['AMap.Scale', 'AMap.DistrictLayer'], () => {
+      map.addControl(new AMap.Scale())
+      // map.addControl(new AMap.DistrictLayer());
+      // 省份图层
+      this.initPro(this.adCode, this.depth).setMap(map)
+    })
+    map.on('complete', () => {
+      setTimeout(() => {
+        ccc.lineMove([800, 350], [156, 340])
+      }, 5200)
+      setTimeout(() => {
+        bezier.lineMove([1200, 400], [72, 198])
+      }, 3500)
+      setTimeout(() => {
+        bez.lineMove([1140, 530], [200, 205])
+      }, 2000)
+      setTimeout(() => {
+        bbb.lineMove([980, 190], [26, 340])
+      }, 4000)
+      setTimeout(() => {
+        ddd.lineMove([920, 430], [306, 180])
+      }, 6000)
     })
     const layer = new Loca.HeatmapLayer({
       map: map
@@ -841,12 +381,6 @@ export default {
       }
     })
     layer.render()
-    map.plugin(['AMap.Scale', 'AMap.DistrictLayer'], () => {
-      map.addControl(new AMap.Scale())
-      // map.addControl(new AMap.DistrictLayer());
-      // 省份图层
-      this.initPro(this.adCode, this.depth).setMap(map)
-    })
     // 图表初始化
     // model1
     const chart1 = this.echarts.init(document.getElementById('chart1'))
@@ -859,14 +393,14 @@ export default {
     const rank = this.echarts.init(document.getElementById('analysis'))
     const sun = this.echarts.init(document.getElementById('sun-map'))
 
-    chart1.setOption(this.options)
-    chart2.setOption(this.changOption([3, 9, 52]))
-    chart3.setOption(this.changOption([1, 5, 2]))
+    chart1.setOption(this.changeOption([120, 60, 1300]))
+    chart2.setOption(this.changeOption([3, 9, 52]))
+    chart3.setOption(this.changeOption([1, 5, 2]))
     // chart4.setOption(this.changOption([2052, 2246, 3200]))
-    cases.setOption(this.option)
-    rank.setOption(this.rankOpt)
+    cases.setOption(caseOpt)
+    rank.setOption(rankOpt)
     // sun
-    sun.setOption(this.sunOpt)
+    sun.setOption(sunOpt)
   },
   methods: {
     async upload(e) {
@@ -911,8 +445,8 @@ export default {
       // var gb = Math.random() * 155 + 50
       return '#263153'
     },
-    changOption(data) {
-      const opt = this.options
+    changeOption(data) {
+      const opt = typeOpt
       opt.series[0]['data'] = data
       return opt
     },

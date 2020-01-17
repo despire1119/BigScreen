@@ -8,6 +8,8 @@
  * @param  {[number]]} percent [动画执行进度]
  * @param  {[number]]]} curveness [贝塞尔曲线弧度]
  */
+
+// 贝塞尔曲线动画类
 export class BezierCurve {
   constructor(config) {
     // this.ele = document.querySelector(config.tag)
