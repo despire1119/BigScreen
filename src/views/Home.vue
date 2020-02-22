@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <div class="top-bar">
-      <span class="title">江苏省交通运输综合行政执法数据分析与监督窗</span>
+      <!-- <span class="title">江苏省交通运输综合行政执法数据分析与监督窗</span> -->
+      <span class="title">江苏省交通运输综合行政执法监督窗</span>
       <span class="logo">
         <img src="@/assets/images/logo.png">
       </span>
