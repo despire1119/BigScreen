@@ -159,7 +159,7 @@
       <div class="linkage-area">
         <div class="map" style="margin-bottom: 10px">
           <div id="container" style="height: 732px" />
-          <button class="moke">数据动画模拟</button>
+          <button class="moke" :class="{ 'if-finish': !ifFinish }" @click="animMokeFrame()">数据动画模拟</button>
         </div>
         <div class="model">
           <div class="panel">
@@ -294,51 +294,12 @@ export default {
   data() {
     return {
       adCode: 320000, // 江苏省行政区代码
-      depth: 2
+      depth: 2,
+      ifFinish: false
     }
   },
   computed: {},
   mounted() {
-    const bezier = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.4,
-      percent: 0,
-      speed: 0.8
-    })
-    const bez = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.5,
-      percent: 0,
-      speed: 0.8
-    })
-    const bbb = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.5,
-      percent: 0,
-      speed: 0.8
-    })
-    const ccc = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.5,
-      percent: 0,
-      speed: 0.8
-    })
-    const ddd = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.5,
-      percent: 0,
-      speed: 0.8
-    })
     // 地图初始化
     const map = new AMap.Map('container', {
       mapStyle: 'amap://styles/4ab0161fdad52fd5c833bd3cb16bafec',
@@ -368,22 +329,9 @@ export default {
         }
       })
       layer.render()
-      // 案件飞线模拟
-      setInterval(() => {
-        ccc.lineMove([800, 350], [156, 340])
-      }, 5200)
-      setInterval(() => {
-        bezier.lineMove([1200, 400], [72, 198])
-      }, 3500)
-      setInterval(() => {
-        bez.lineMove([1140, 530], [200, 205])
+      setTimeout(() => {
+        this.animMoke()
       }, 2000)
-      setInterval(() => {
-        bbb.lineMove([980, 190], [26, 340])
-      }, 4000)
-      setInterval(() => {
-        ddd.lineMove([920, 430], [306, 180])
-      }, 6000)
     })
     // 图表初始化
     // model1
@@ -407,6 +355,67 @@ export default {
     sun.setOption(sunOpt)
   },
   methods: {
+    animMokeFrame() {
+      this.ifFinish && this.animMoke()
+    },
+    animMoke() {
+      this.ifFinish = false
+      const bezier = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.4,
+        percent: 0,
+        speed: 0.8
+      })
+      const bez = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.5,
+        percent: 0,
+        speed: 0.8
+      })
+      const bbb = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.5,
+        percent: 0,
+        speed: 0.8
+      })
+      const ccc = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.5,
+        percent: 0,
+        speed: 0.8
+      })
+      const ddd = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.5,
+        percent: 0,
+        speed: 0.8
+      })
+      // 案件飞线模拟
+      bez.lineMove([1140, 530], [200, 205])
+      setTimeout(() => {
+        bezier.lineMove([1200, 400], [72, 198])
+      }, 1500)
+      setTimeout(() => {
+        bbb.lineMove([980, 190], [26, 340])
+      }, 2500)
+      setTimeout(() => {
+        ccc.lineMove([800, 350], [156, 340])
+      }, 3200)
+      setTimeout(() => {
+        ddd.lineMove([920, 430], [306, 180])
+        this.ifFinish = true
+      }, 4000)
+    },
     async upload(e) {
       const param = new FormData()
       const file = e.target.files[0]
@@ -537,6 +546,8 @@ export default {
       border-radius 5px
       background-color #27cefe
       font-size 14px
+    .if-finish
+      background-color #ddd
   .right-area
     width 510px
     padding 10

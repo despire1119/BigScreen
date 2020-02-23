@@ -74,6 +74,7 @@ export class BezierCurve {
   }
   // 运动轨迹动画
   lineMove(origin, target) {
+    const toEnd = requestAnimationFrame(_ => this.lineMove(origin, target))
     const { q0, b } = { ...this.drawLine(origin, target) }
     this.ctx.clearRect(0, 0, this.ele.width, this.ele.height)
     // this.drawPoint(b) // 动画终点
@@ -89,7 +90,6 @@ export class BezierCurve {
     } else {
       this.ctx.globalAlpha = this.opacity
       this.opacity -= 0.03
-      this.opacity <= 0 && cancelAnimationFrame(toEnd)
       // if (this.opacity <= 0) {
       //   this.ctx.clearRect(0, 0, this.ele.width, this.ele.height)
       //   this.percent = 0
@@ -98,7 +98,10 @@ export class BezierCurve {
     }
     this.ctx.closePath()
     // this.opacity = this.percent>90?this.opacity-this.percent/100:1
-    const toEnd = requestAnimationFrame(_ => this.lineMove(origin, target))
+    if (this.opacity <= 0 && this.percent + this.speed >= 100) {
+      cancelAnimationFrame(toEnd)
+      this.ele.remove()
+    }
   }
 }
 
