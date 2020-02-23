@@ -41,22 +41,22 @@ export class BezierCurve {
   drawLine(origin, target) {
     // 引力点
     const cp = [
-      (origin[ 0 ] + target[ 0 ]) / 2 - (origin[ 1 ] - target[ 1 ]) * this.curveness,
-      (origin[ 1 ] + target[ 1 ]) / 2 - (target[ 0 ] - origin[ 0 ]) * this.curveness
+      (origin[0] + target[0]) / 2 - (origin[1] - target[1]) * this.curveness,
+      (origin[1] + target[1]) / 2 - (target[0] - origin[0]) * this.curveness
     ]
 
     const t = this.percent && this.percent / 100 || 100 // 系数
 
     const [p0, p1, p2] = [origin, cp, target]
 
-    const v01 = [p1[ 0 ] - p0[ 0 ], p1[ 1 ] - p0[ 1 ]] // 向量<p0, p1>
-    const v12 = [p2[ 0 ] - p1[ 0 ], p2[ 1 ] - p1[ 1 ]] // 向量<p1, p2>
+    const v01 = [p1[0] - p0[0], p1[1] - p0[1]] // 向量<p0, p1>
+    const v12 = [p2[0] - p1[0], p2[1] - p1[1]] // 向量<p1, p2>
 
-    const q0 = [p0[ 0 ] + v01[ 0 ] * t, p0[ 1 ] + v01[ 1 ] * t] // 下一个引力点
-    const q1 = [p1[ 0 ] + v12[ 0 ] * t, p1[ 1 ] + v12[ 1 ] * t]
+    const q0 = [p0[0] + v01[0] * t, p0[1] + v01[1] * t] // 下一个引力点
+    const q1 = [p1[0] + v12[0] * t, p1[1] + v12[1] * t]
 
-    const v = [q1[ 0 ] - q0[ 0 ], q1[ 1 ] - q0[ 1 ]] // 向量<q0, q1>
-    const b = [q0[ 0 ] + v[ 0 ] * t, q0[ 1 ] + v[ 1 ] * t] // 下一个轨迹点
+    const v = [q1[0] - q0[0], q1[1] - q0[1]] // 向量<q0, q1>
+    const b = [q0[0] + v[0] * t, q0[1] + v[1] * t] // 下一个轨迹点
 
     return {
       q0: q0,
