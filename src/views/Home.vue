@@ -304,7 +304,7 @@ export default {
       color: '#27cefe',
       curveness: -0.4,
       percent: 0,
-      speed: 1.2
+      speed: 0.8
     })
     const bez = new BezierCurve({
       tag: '#canvas',
@@ -312,7 +312,7 @@ export default {
       color: '#27cefe',
       curveness: -0.5,
       percent: 0,
-      speed: 1.2
+      speed: 0.8
     })
     const bbb = new BezierCurve({
       tag: '#canvas',
@@ -320,7 +320,7 @@ export default {
       color: '#27cefe',
       curveness: -0.5,
       percent: 0,
-      speed: 1.2
+      speed: 0.8
     })
     const ccc = new BezierCurve({
       tag: '#canvas',
@@ -328,7 +328,7 @@ export default {
       color: '#27cefe',
       curveness: -0.5,
       percent: 0,
-      speed: 1.2
+      speed: 0.8
     })
     const ddd = new BezierCurve({
       tag: '#canvas',
@@ -336,7 +336,7 @@ export default {
       color: '#27cefe',
       curveness: -0.5,
       percent: 0,
-      speed: 1.2
+      speed: 0.8
     })
     // 地图初始化
     const map = new AMap.Map('container', {
@@ -353,6 +353,21 @@ export default {
       this.initPro(this.adCode, this.depth).setMap(map)
     })
     map.on('complete', () => {
+      // 热力图数据模拟
+      const layer = new Loca.HeatmapLayer({
+        map: map
+      })
+      layer.setData(this.heatData(), {
+        lnglat: 'lnglat'
+      })
+      layer.setOptions({
+        style: {
+          radius: 30,
+          opacity: [0.1, 0.8]
+        }
+      })
+      layer.render()
+      // 案件飞线模拟
       setInterval(() => {
         ccc.lineMove([800, 350], [156, 340])
       }, 5200)
@@ -369,19 +384,6 @@ export default {
         ddd.lineMove([920, 430], [306, 180])
       }, 6000)
     })
-    const layer = new Loca.HeatmapLayer({
-      map: map
-    })
-    layer.setData(this.heatData(), {
-      lnglat: 'lnglat'
-    })
-    layer.setOptions({
-      style: {
-        radius: 30,
-        opacity: [0.1, 0.8]
-      }
-    })
-    layer.render()
     // 图表初始化
     // model1
     const chart1 = this.echarts.init(document.getElementById('chart1'))

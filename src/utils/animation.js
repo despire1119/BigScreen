@@ -34,7 +34,7 @@ export class BezierCurve {
     this.percent = config.percent || 0
     this.speed = Number(config.speed) || 1
     this.opacity = 1
-    this.timeStamp = []
+    this.timeStamp = [] // 动画针合并图层
   }
 
   // 贝塞尔曲线运算，返回切面点
@@ -63,7 +63,7 @@ export class BezierCurve {
       b: b
     }
   }
-  // 点
+  // 画点
   drawPoint(origin) {
     this.ctx.beginPath()
     this.ctx.arc(...origin, this.radius, 0, 2 * Math.PI)
