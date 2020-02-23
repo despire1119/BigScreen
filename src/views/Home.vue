@@ -159,6 +159,7 @@
       <div class="linkage-area">
         <div class="map" style="margin-bottom: 10px">
           <div id="container" style="height: 732px" />
+          <button class="moke">数据动画模拟</button>
         </div>
         <div class="model">
           <div class="panel">
@@ -521,9 +522,21 @@ export default {
     flex 1
     margin 0 12px
     .map
+      position relative
       width 100%
       height 732px
       box-shadow 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
+    .moke
+      position absolute
+      top 10px
+      right 10px
+      width 120px
+      height 30px
+      line-height 30px
+      color #fff
+      border-radius 5px
+      background-color #27cefe
+      font-size 14px
   .right-area
     width 510px
     padding 10
