@@ -17,7 +17,7 @@ export const SunData = [
       },
       {
         name: '海事',
-        value: 11590
+        value: 53466
       }
     ]
   },
@@ -30,12 +30,16 @@ export const SunData = [
         // value: 14540,
         children: [
           {
-            name: '高速公路',
+            name: '危及公路安全',
             value: 22440
           },
           {
-            name: '普通公路',
+            name: '逃避检测',
             value: 2100
+          },
+          {
+            name: '采伐护路林',
+            value: 12
           }
         ]
       },

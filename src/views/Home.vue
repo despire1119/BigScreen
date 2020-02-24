@@ -365,35 +365,35 @@ export default {
         radius: 4,
         color: '#27cefe',
         curveness: -0.4,
-        percent: 0,
+        percent: 0
       })
       const bez = new BezierCurve({
         tag: '#canvas',
         radius: 4,
         color: '#27cefe',
         curveness: -0.5,
-        percent: 0,
+        percent: 0
       })
       const bbb = new BezierCurve({
         tag: '#canvas',
         radius: 4,
         color: '#27cefe',
         curveness: -0.5,
-        percent: 0,
+        percent: 0
       })
       const ccc = new BezierCurve({
         tag: '#canvas',
         radius: 4,
         color: '#27cefe',
         curveness: -0.5,
-        percent: 0,
+        percent: 0
       })
       const ddd = new BezierCurve({
         tag: '#canvas',
         radius: 4,
         color: '#27cefe',
         curveness: -0.5,
-        percent: 0,
+        percent: 0
       })
       // 案件飞线模拟
       bez.lineMove([1140, 530], [220, 335])
