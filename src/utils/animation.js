@@ -9,6 +9,11 @@
  * @param  {[number]]]} curveness [贝塞尔曲线弧度]
  */
 
+const fadeOutSpeed = {
+  fast: 0.05,
+  normal: 0.02,
+  slow: 0.01
+}
 // 贝塞尔曲线动画类
 export class BezierCurve {
   constructor(config) {
@@ -32,8 +37,9 @@ export class BezierCurve {
     this.color = config.color || '#FCFF0E'
     this.curveness = config.curveness || 0
     this.percent = config.percent || 0
+    this.opacityPer = fadeOutSpeed[config.fadeOutSpeed || 'normal']
     this.speed = Number(config.speed) || 1
-    this.opacity = 1
+    this.opacity = config.opacity || 1
     this.timeStamp = []
   }
 
@@ -63,7 +69,7 @@ export class BezierCurve {
       b: b
     }
   }
-  // 点
+  // 画点
   drawPoint(origin) {
     this.ctx.beginPath()
     this.ctx.arc(...origin, this.radius, 0, 2 * Math.PI)
@@ -73,37 +79,31 @@ export class BezierCurve {
     this.ctx.closePath()
   }
   // 运动轨迹动画
-  lineMove(origin, target) {
+  lineMove(origin, target, callback) {
+    // console.log(this.percent)
     const { q0, b } = { ...this.drawLine(origin, target) }
     this.ctx.clearRect(0, 0, this.ele.width, this.ele.height)
-    // this.drawPoint(b) // 动画终点
-
+    this.ctx.beginPath()
+    this.drawPoint(origin)
+    this.ctx.moveTo(...origin) // 起点
+    this.ctx.quadraticCurveTo(...q0, ...b) // 贝塞尔曲线
+    this.ctx.globalAlpha = this.opacity
+    this.ctx.strokeStyle = this.color
+    this.ctx.lineWidth = 1
+    this.ctx.stroke()
     if (this.percent + this.speed < 100) {
-      this.drawPoint(origin)
-      this.ctx.beginPath()
-      this.ctx.moveTo(...origin) // 起点
-      this.ctx.quadraticCurveTo(...q0, ...b) // 贝塞尔曲线
-      this.ctx.lineWidth = 1
-      this.ctx.strokeStyle = this.color
-      this.ctx.stroke()
       this.percent = (this.percent + this.speed) % 100
+    } else if (this.opacity > 0) {
+      this.opacity -= this.opacityPer
     } else {
-      cancelAnimationFrame(toEnd)
-      this.ctx.globalAlpha = this.opacity
-      this.opacity -= 0.0000001
+      this.opacity = 0
+      // this.ele.remove() // 清除canvas
+      cancelAnimationFrame(id) // 清除动画渲染
+      callback && typeof callback === 'function' && callback()
     }
     this.ctx.closePath()
     // this.opacity = this.percent>90?this.opacity-this.percent/100:1
-    const toEnd = requestAnimationFrame(_ => this.lineMove(origin, target))
-    if (this.percent + this.speed >= 100) {
-      cancelAnimationFrame(toEnd)
-      const final = setTimeout(() => {
-        this.opacity = 0
-        this.lineMove(origin, target)
-        clearTimeout(final)
-        // this.ele.remove()
-      }, 1000)
-    }
+    const id = requestAnimationFrame(_ => this.lineMove(origin, target))
   }
   moveOut() {
     this.ctx.beginPath()

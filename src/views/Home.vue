@@ -297,46 +297,6 @@ export default {
   },
   computed: {},
   mounted() {
-    const bezier = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.4,
-      percent: 0,
-      speed: 1.2
-    })
-    const bez = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.5,
-      percent: 0,
-      speed: 1.2
-    })
-    const bbb = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.5,
-      percent: 0,
-      speed: 1.2
-    })
-    const ccc = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.5,
-      percent: 0,
-      speed: 1.2
-    })
-    const ddd = new BezierCurve({
-      tag: '#canvas',
-      radius: 4,
-      color: '#27cefe',
-      curveness: -0.5,
-      percent: 0,
-      speed: 1.2
-    })
     // 地图初始化
     const map = new AMap.Map('container', {
       mapStyle: 'amap://styles/4ab0161fdad52fd5c833bd3cb16bafec',
@@ -352,35 +312,45 @@ export default {
       this.initPro(this.adCode, this.depth).setMap(map)
     })
     map.on('complete', () => {
-      setInterval(() => {
-        ccc.lineMove([800, 350], [156, 340])
-      }, 5200)
-      setInterval(() => {
-        bezier.lineMove([1200, 400], [72, 198])
-      }, 3500)
-      setInterval(() => {
-        bez.lineMove([1140, 530], [200, 205])
-      }, 2000)
-      setInterval(() => {
-        bbb.lineMove([980, 190], [26, 340])
-      }, 4000)
-      setInterval(() => {
-        ddd.lineMove([920, 430], [306, 180])
-      }, 6000)
+      // 热力图渲染
+      const layer = new Loca.HeatmapLayer({
+        map: map
+      })
+      layer.setData(this.heatData(), {
+        lnglat: 'lnglat'
+      })
+      layer.setOptions({
+        style: {
+          radius: 30,
+          opacity: [0.1, 0.8]
+        }
+      })
+      layer.render()
+      this.animationFrame()
+      const ccc = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.5,
+        percent: 0,
+        speed: 1.2,
+        // fadeOutSpeed: 'fast'
+      })
+      // let c = setTimeout(() => {
+      //   ccc.percent = 0
+      //   ccc.opacity = 1
+      //   ccc.lineMove([800, 350], [156, 340])
+      //   clearTimeout(c)
+      //   c = null
+      // }, 3000)
+      // let cc = setTimeout(() => {
+      //   ccc.percent = 0
+      //   ccc.opacity = 1
+      //   ccc.lineMove([800, 350], [156, 340])
+      //   clearTimeout(cc)
+      //   cc = null
+      // }, 6000)
     })
-    const layer = new Loca.HeatmapLayer({
-      map: map
-    })
-    layer.setData(this.heatData(), {
-      lnglat: 'lnglat'
-    })
-    layer.setOptions({
-      style: {
-        radius: 30,
-        opacity: [0.1, 0.8]
-      }
-    })
-    layer.render()
     // 图表初始化
     // model1
     const chart1 = this.echarts.init(document.getElementById('chart1'))
@@ -403,6 +373,74 @@ export default {
     sun.setOption(sunOpt)
   },
   methods: {
+    // 数据动效模拟
+    animationFrame() {
+      let c = setTimeout(() => {
+        let ccc = new BezierCurve({
+          tag: '#canvas',
+          radius: 4,
+          color: '#27cefe',
+          curveness: -0.5,
+          percent: 0,
+          speed: 1.2
+        })
+        ccc.lineMove([800, 350], [156, 340], _ => (ccc = null))
+        clearTimeout(c)
+        c = null
+      }, 5200)
+      let b = setTimeout(() => {
+        let bezier = new BezierCurve({
+          tag: '#canvas',
+          radius: 4,
+          color: '#27cefe',
+          curveness: -0.4,
+          percent: 0,
+          speed: 1.2
+        })
+        bezier.lineMove([1200, 400], [72, 198], _ => (bezier = null))
+        clearTimeout(b)
+        b = null
+      }, 3500)
+      let d = setTimeout(() => {
+        let bez = new BezierCurve({
+          tag: '#canvas',
+          radius: 4,
+          color: '#27cefe',
+          curveness: -0.5,
+          percent: 0,
+          speed: 1.2
+        })
+        bez.lineMove([1140, 530], [200, 205], _ => (bez = null))
+        clearTimeout(d)
+        d = null
+      }, 2000)
+      let e = setTimeout(() => {
+        let bbb = new BezierCurve({
+          tag: '#canvas',
+          radius: 4,
+          color: '#27cefe',
+          curveness: -0.5,
+          percent: 0,
+          speed: 1.2
+        })
+        bbb.lineMove([980, 190], [26, 340], _ => (bbb = null))
+        clearTimeout(e)
+        e = null
+      }, 4000)
+      let f = setTimeout(() => {
+        let ddd = new BezierCurve({
+          tag: '#canvas',
+          radius: 4,
+          color: '#27cefe',
+          curveness: -0.5,
+          percent: 0,
+          speed: 1.2
+        })
+        ddd.lineMove([920, 430], [306, 180], _ => (ddd = null))
+        clearTimeout(f)
+        f = null
+      }, 6000)
+    },
     async upload(e) {
       const param = new FormData()
       const file = e.target.files[0]
