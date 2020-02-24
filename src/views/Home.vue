@@ -366,7 +366,6 @@ export default {
         color: '#27cefe',
         curveness: -0.4,
         percent: 0,
-        speed: 0.8
       })
       const bez = new BezierCurve({
         tag: '#canvas',
@@ -374,7 +373,6 @@ export default {
         color: '#27cefe',
         curveness: -0.5,
         percent: 0,
-        speed: 0.8
       })
       const bbb = new BezierCurve({
         tag: '#canvas',
@@ -382,7 +380,6 @@ export default {
         color: '#27cefe',
         curveness: -0.5,
         percent: 0,
-        speed: 0.8
       })
       const ccc = new BezierCurve({
         tag: '#canvas',
@@ -390,7 +387,6 @@ export default {
         color: '#27cefe',
         curveness: -0.5,
         percent: 0,
-        speed: 0.8
       })
       const ddd = new BezierCurve({
         tag: '#canvas',
@@ -398,23 +394,22 @@ export default {
         color: '#27cefe',
         curveness: -0.5,
         percent: 0,
-        speed: 0.8
       })
       // 案件飞线模拟
-      bez.lineMove([1140, 530], [200, 205])
+      bez.lineMove([1140, 530], [220, 335])
       setTimeout(() => {
-        bezier.lineMove([1200, 400], [72, 198])
-      }, 1500)
+        bezier.lineMove([1200, 400], [102, 190])
+      }, 1800)
       setTimeout(() => {
-        bbb.lineMove([980, 190], [26, 340])
+        bbb.lineMove([980, 190], [55, 335])
       }, 2500)
       setTimeout(() => {
-        ccc.lineMove([800, 350], [156, 340])
-      }, 3200)
+        ccc.lineMove([800, 350], [80, 340])
+      }, 4500)
       setTimeout(() => {
-        ddd.lineMove([920, 430], [306, 180])
+        ddd.lineMove([920, 430], [275, 200])
         this.ifFinish = true
-      }, 4000)
+      }, 5300)
     },
     async upload(e) {
       const param = new FormData()

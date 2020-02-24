@@ -32,7 +32,7 @@ export class BezierCurve {
     this.color = config.color || '#FCFF0E'
     this.curveness = config.curveness || 0
     this.percent = config.percent || 0
-    this.speed = Number(config.speed) || 1
+    this.speed = Number(config.speed) || 1.3
     this.opacity = 1
     this.timeStamp = [] // 动画针合并图层
   }
@@ -90,11 +90,6 @@ export class BezierCurve {
     } else {
       this.ctx.globalAlpha = this.opacity
       this.opacity -= 0.03
-      // if (this.opacity <= 0) {
-      //   this.ctx.clearRect(0, 0, this.ele.width, this.ele.height)
-      //   this.percent = 0
-      //   this.opacity = 1
-      // }
     }
     this.ctx.closePath()
     // this.opacity = this.percent>90?this.opacity-this.percent/100:1
