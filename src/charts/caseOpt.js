@@ -93,7 +93,7 @@ export default {
       data: [320, 302, 301, 334, 390, 330, 320]
     },
     {
-      name: '处罚',
+      name: '强制',
       type: 'bar',
       stack: '总量',
       barWidth: 10,

@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <div class="top-bar">
-      <span class="title">江苏省交通运输综合行政执法数据分析与监督窗</span>
+      <!-- <span class="title">江苏省交通运输综合行政执法数据分析与监督窗</span> -->
+      <span class="title">江苏省交通运输综合行政执法监督窗</span>
       <span class="logo">
         <img src="@/assets/images/logo.png">
       </span>
@@ -158,6 +159,7 @@
       <div class="linkage-area">
         <div class="map" style="margin-bottom: 10px">
           <div id="container" style="height: 732px" />
+          <button class="moke" :class="{ 'if-finish': !ifFinish }" @click="animMokeFrame()">数据动画模拟</button>
         </div>
         <div class="model">
           <div class="panel">
@@ -292,7 +294,8 @@ export default {
   data() {
     return {
       adCode: 320000, // 江苏省行政区代码
-      depth: 2
+      depth: 2,
+      ifFinish: false
     }
   },
   computed: {},
@@ -312,7 +315,7 @@ export default {
       this.initPro(this.adCode, this.depth).setMap(map)
     })
     map.on('complete', () => {
-      // 热力图渲染
+      // 热力图数据模拟
       const layer = new Loca.HeatmapLayer({
         map: map
       })
@@ -326,30 +329,9 @@ export default {
         }
       })
       layer.render()
-      this.animationFrame()
-      const ccc = new BezierCurve({
-        tag: '#canvas',
-        radius: 4,
-        color: '#27cefe',
-        curveness: -0.5,
-        percent: 0,
-        speed: 1.2,
-        // fadeOutSpeed: 'fast'
-      })
-      // let c = setTimeout(() => {
-      //   ccc.percent = 0
-      //   ccc.opacity = 1
-      //   ccc.lineMove([800, 350], [156, 340])
-      //   clearTimeout(c)
-      //   c = null
-      // }, 3000)
-      // let cc = setTimeout(() => {
-      //   ccc.percent = 0
-      //   ccc.opacity = 1
-      //   ccc.lineMove([800, 350], [156, 340])
-      //   clearTimeout(cc)
-      //   cc = null
-      // }, 6000)
+      setTimeout(() => {
+        this.animMoke()
+      }, 2000)
     })
     // 图表初始化
     // model1
@@ -373,73 +355,66 @@ export default {
     sun.setOption(sunOpt)
   },
   methods: {
-    // 数据动效模拟
-    animationFrame() {
-      let c = setTimeout(() => {
-        let ccc = new BezierCurve({
-          tag: '#canvas',
-          radius: 4,
-          color: '#27cefe',
-          curveness: -0.5,
-          percent: 0,
-          speed: 1.2
-        })
-        ccc.lineMove([800, 350], [156, 340], _ => (ccc = null))
-        clearTimeout(c)
-        c = null
-      }, 5200)
-      let b = setTimeout(() => {
-        let bezier = new BezierCurve({
-          tag: '#canvas',
-          radius: 4,
-          color: '#27cefe',
-          curveness: -0.4,
-          percent: 0,
-          speed: 1.2
-        })
-        bezier.lineMove([1200, 400], [72, 198], _ => (bezier = null))
-        clearTimeout(b)
-        b = null
-      }, 3500)
-      let d = setTimeout(() => {
-        let bez = new BezierCurve({
-          tag: '#canvas',
-          radius: 4,
-          color: '#27cefe',
-          curveness: -0.5,
-          percent: 0,
-          speed: 1.2
-        })
-        bez.lineMove([1140, 530], [200, 205], _ => (bez = null))
-        clearTimeout(d)
-        d = null
-      }, 2000)
-      let e = setTimeout(() => {
-        let bbb = new BezierCurve({
-          tag: '#canvas',
-          radius: 4,
-          color: '#27cefe',
-          curveness: -0.5,
-          percent: 0,
-          speed: 1.2
-        })
-        bbb.lineMove([980, 190], [26, 340], _ => (bbb = null))
-        clearTimeout(e)
-        e = null
+    animMokeFrame() {
+      this.ifFinish && this.animMoke()
+    },
+    animMoke() {
+      this.ifFinish = false
+      const bezier = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.4,
+        percent: 0,
+        speed: 0.8
+      })
+      const bez = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.5,
+        percent: 0,
+        speed: 0.8
+      })
+      const bbb = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.5,
+        percent: 0,
+        speed: 0.8
+      })
+      const ccc = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.5,
+        percent: 0,
+        speed: 0.8
+      })
+      const ddd = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#27cefe',
+        curveness: -0.5,
+        percent: 0,
+        speed: 0.8
+      })
+      // 案件飞线模拟
+      bez.lineMove([1140, 530], [200, 205])
+      setTimeout(() => {
+        bezier.lineMove([1200, 400], [72, 198])
+      }, 1500)
+      setTimeout(() => {
+        bbb.lineMove([980, 190], [26, 340])
+      }, 2500)
+      setTimeout(() => {
+        ccc.lineMove([800, 350], [156, 340])
+      }, 3200)
+      setTimeout(() => {
+        ddd.lineMove([920, 430], [306, 180])
+        this.ifFinish = true
       }, 4000)
-      let f = setTimeout(() => {
-        let ddd = new BezierCurve({
-          tag: '#canvas',
-          radius: 4,
-          color: '#27cefe',
-          curveness: -0.5,
-          percent: 0,
-          speed: 1.2
-        })
-        ddd.lineMove([920, 430], [306, 180], _ => (ddd = null))
-        clearTimeout(f)
-        f = null
-      }, 6000)
     },
     async upload(e) {
       const param = new FormData()
@@ -556,9 +531,23 @@ export default {
     flex 1
     margin 0 12px
     .map
+      position relative
       width 100%
       height 732px
       box-shadow 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
+    .moke
+      position absolute
+      top 10px
+      right 10px
+      width 120px
+      height 30px
+      line-height 30px
+      color #fff
+      border-radius 5px
+      background-color #27cefe
+      font-size 14px
+    .if-finish
+      background-color #ddd
   .right-area
     width 510px
     padding 10
