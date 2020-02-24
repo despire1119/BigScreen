@@ -370,21 +370,21 @@ export default {
       const bez = new BezierCurve({
         tag: '#canvas',
         radius: 4,
-        color: '#27cefe',
+        color: '#00ffcc',
         curveness: -0.5,
         percent: 0
       })
       const bbb = new BezierCurve({
         tag: '#canvas',
         radius: 4,
-        color: '#27cefe',
+        color: '#00ffcc',
         curveness: -0.5,
         percent: 0
       })
       const ccc = new BezierCurve({
         tag: '#canvas',
         radius: 4,
-        color: '#27cefe',
+        color: '#fcff0e',
         curveness: -0.5,
         percent: 0
       })
@@ -392,6 +392,13 @@ export default {
         tag: '#canvas',
         radius: 4,
         color: '#27cefe',
+        curveness: -0.5,
+        percent: 0
+      })
+      const eee = new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: '#fcff0e',
         curveness: -0.5,
         percent: 0
       })
@@ -410,6 +417,10 @@ export default {
         ddd.lineMove([920, 430], [275, 200])
         this.ifFinish = true
       }, 5300)
+      setTimeout(() => {
+        eee.lineMove([800, 350], [80, 340])
+        this.ifFinish = true
+      }, 6000)
     },
     async upload(e) {
       const param = new FormData()
