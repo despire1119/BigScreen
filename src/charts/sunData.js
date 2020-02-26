@@ -17,7 +17,45 @@ export const SunData = [
       },
       {
         name: '海事',
-        value: 53466
+        value: 53466,
+        children: [
+          {
+            name: '未标船名',
+            value: 5932
+          },
+          {
+            name: '干舷不符',
+            value: 2045
+          },
+          {
+            name: '配员不足',
+            value: 12401
+          },
+          {
+            name: '防污染设备缺失',
+            value: 2411
+          },
+          {
+            name: '无防污染凭证',
+            value: 3923
+          },
+          {
+            name: '超航道等级',
+            value: 5532
+          },
+          {
+            name: '船舶情况未申报',
+            value: 3401
+          },
+          {
+            name: '标志不清',
+            value: 4011
+          },
+          {
+            name: '威胁带监督检查报告',
+            value: 13901
+          }
+        ]
       }
     ]
   },
@@ -64,11 +102,29 @@ export const SunData = [
     ]
   },
   {
-    name: '质量',
+    name: '工程监督',
     children: [
       {
         name: '公路工程',
-        value: 2042
+        value: 2042,
+        children: [
+          {
+            name: '未推荐候选人中标',
+            value: 301
+          },
+          {
+            name: '预审不符合相关标准',
+            value: 528
+          },
+          {
+            name: '招标中介机构与候选人串通',
+            value: 128
+          },
+          {
+            name: '未提供劳动防护用品',
+            value: 928
+          }
+        ]
       },
       {
         name: '铁路工程',
@@ -76,11 +132,47 @@ export const SunData = [
       },
       {
         name: '水运工程',
-        value: 9302
+        value: 21953,
+        children: [
+          {
+            name: '未经验收',
+            value: 12401
+          },
+          {
+            name: '配员不足',
+            value: 7401
+          },
+          {
+            name: '预审不符合相关标准',
+            value: 6928
+          },
+          {
+            name: '监理单位质量违法',
+            value: 4928
+          },
+          {
+            name: '建设单位质量违法',
+            value: 2928
+          },
+          {
+            name: '检验检测机构违规',
+            value: 2028
+          },
+          {
+            name: '检验检测人员违规',
+            value: 1281
+          }
+        ]
       },
       {
         name: '建设市场',
-        value: 21953
+        value: 9302,
+        children: [
+          {
+            name: '预审不符合相关标准',
+            value: 928
+          }
+        ]
       }
     ]
   }

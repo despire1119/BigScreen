@@ -73,7 +73,7 @@ export class BezierCurve {
     this.ctx.closePath()
   }
   // 运动轨迹动画
-  lineMove(origin, target) {
+  lineMove(origin, target, callback) {
     const toEnd = requestAnimationFrame(_ => this.lineMove(origin, target))
     const { q0, b } = { ...this.drawLine(origin, target) }
     this.ctx.clearRect(0, 0, this.ele.width, this.ele.height)
@@ -96,6 +96,7 @@ export class BezierCurve {
     if (this.opacity <= 0 && this.percent + this.speed >= 100) {
       cancelAnimationFrame(toEnd)
       this.ele.remove()
+      callback && callback()
     }
   }
 }
