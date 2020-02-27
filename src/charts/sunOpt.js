@@ -46,7 +46,7 @@ export default {
         }
       }, {
         r0: '80%',
-        r: '82%',
+        r: '83%',
         label: {
           position: 'outside',
           padding: 3,

@@ -1,5 +1,11 @@
 import echarts from 'echarts'
 
+const data1 = [820, 832, 901, 934, 1290, 1330, 1320, 1034, 1100, 1038, 1210, 919]
+const data2 = [320, 302, 301, 334, 390, 330, 320, 301, 315, 311, 396, 274]
+const data3 = [32, 32, 31, 34, 30, 33, 32, 34, 39, 37, 41, 28]
+
+const data4 = data1.map((item, index) => item + data2[index] + data3[index])
+
 export default {
   tooltip: {
     trigger: 'axis',
@@ -31,12 +37,17 @@ export default {
     type: 'category',
     data: [
       '南京支队',
-      '连云港支队',
-      '常州支队',
       '苏州支队',
-      '淮安支队',
-      '徐州支队',
-      '南通支队'
+      '京沪支队',
+      '连徐支队',
+      '宁杭支队',
+      '宁沪支队',
+      '宁连支队',
+      '宁通支队',
+      '徐盐支队',
+      '盐锡支队',
+      '沿海支队',
+      '沿江支队'
     ],
     axisLabel: {
       show: true,
@@ -52,7 +63,7 @@ export default {
       stack: '总量',
       barWidth: 10,
       label: {
-        show: false,
+        // show: true,
         position: 'insideRight'
       },
       itemStyle: {
@@ -66,7 +77,7 @@ export default {
           // color: ''
         }
       },
-      data: [820, 832, 901, 934, 1290, 1330, 1320]
+      data: data1
     },
     {
       name: '处罚',
@@ -90,7 +101,7 @@ export default {
           color: '#E6C34D'
         }
       },
-      data: [320, 302, 301, 334, 390, 330, 320]
+      data: data2
     },
     {
       name: '强制',
@@ -114,7 +125,23 @@ export default {
           color: '#DB4B4B'
         }
       },
-      data: [32, 32, 31, 34, 30, 33, 32]
+      data: data3
+    },
+    {
+      name: '总计',
+      type: 'line',
+      symbol: 'diamond',
+      lineStyle: {
+        opacity: 0
+      },
+      label: {
+        show: true,
+        position: 'right',
+        textStyle: {
+          color: '#fff'
+        }
+      },
+      data: data4
     }
   ]
 }
