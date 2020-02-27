@@ -1,57 +1,7 @@
 export const SunData = [
   {
-    name: '质量',
-    children: [
-      {
-        name: '公路工程',
-        value: 6042
-      },
-      {
-        name: '铁路工程',
-        value: 6012
-      },
-      {
-        name: '水运工程',
-        value: 6953
-      },
-      {
-        name: '建设市场',
-        value: 6302
-      }
-    ]
-  },
-  {
     name: '水上',
     children: [
-      {
-        name: '航政',
-        value: 5020
-      },
-      {
-        name: '港政',
-        value: 5990
-      },
-      {
-        name: '运政',
-        children: [
-          {
-            name: '客运',
-            value: 13000
-          },
-          {
-            name: '普通货运',
-            value: 15399
-          },
-          {
-            name: '危险货运',
-            value: 8999
-          },
-          {
-            name: '维修陪驾',
-            value: 4423
-          }
-        ]
-      },
       {
         name: '海事',
         children: [
@@ -65,7 +15,7 @@ export const SunData = [
           },
           {
             name: '1000-2000元',
-            value: 30720
+            value: 20720
           },
           {
             name: '2000-3000元',
@@ -80,6 +30,56 @@ export const SunData = [
             value: 2442
           }
         ]
+      },
+      {
+        name: '运政',
+        children: [
+          {
+            name: '客运',
+            value: 6000
+          },
+          {
+            name: '普通货运',
+            value: 4399
+          },
+          {
+            name: '危险货运',
+            value: 3999
+          },
+          {
+            name: '维修陪驾',
+            value: 3423
+          }
+        ]
+      },
+      {
+        name: '航政',
+        value: 5020
+      },
+      {
+        name: '港政',
+        value: 5990
+      }
+    ]
+  },
+  {
+    name: '质量',
+    children: [
+      {
+        name: '公路工程',
+        value: 8042
+      },
+      {
+        name: '铁路工程',
+        value: 8012
+      },
+      {
+        name: '水运工程',
+        value: 8953
+      },
+      {
+        name: '建设市场',
+        value: 8302
       }
     ]
   },
@@ -131,11 +131,11 @@ export const SunData = [
         children: [
           {
             name: '一般程序',
-            value: 3909
+            value: 9909
           },
           {
             name: '简易程序',
-            value: 1000
+            value: 3000
           }
         ]
       }
