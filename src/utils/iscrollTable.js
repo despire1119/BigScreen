@@ -12,9 +12,9 @@ export function createIScroller(selector) {
     scrollY: true, // 启动y轴滑动
     // momentum: false,
     lockDirection: false,
-    snap: false, // 自动分割容器，用于制作走马灯效果等。Options.snap:true// 根据容器尺寸自动分割
+    // snap: true, // 自动分割容器，用于制作走马灯效果等。Options.snap:true// 根据容器尺寸自动分割
     // snapSpeed: 400,
-    scrollbars: false, // 是否显示默认滚动条
+    scrollbars: true, // 是否显示默认滚动条
     freeScroll: true, // 主要在上下左右滚动都生效时使用，可以向任意方向滚动。
     deceleration: 0.0001, // 滚动动量减速越大越快，建议不大于 0.01,默认:0.0006
     disableMouse: true, // 是否关闭鼠标事件探测。如知道运行在哪个平台，可以开启它来加速。

@@ -86,7 +86,7 @@
         <div class="model">
           <div style="flex:1">
             <div class="panel">
-              <span class="tit">支队检查案件</span>
+              <span class="tit">支队案件量</span>
               <!-- <ul class="range-opt">
                 <li class="range year">最近一年</li>
                 <li class="range mounth">最近一月</li>
@@ -106,54 +106,206 @@
                 <th class="rows">机构</th>
                 <th class="rows">总人数</th>
                 <th class="rows">执法岗位人数</th>
-                <th class="rows">人均行政检查（件）</th>
-                <th class="rows">人均行政处罚（件）</th>
-                <th class="rows">阳性率</th>
+                <th class="rows">人均行政检查(件)</th>
+                <th class="rows">人均行政处罚(件)</th>
+                <th class="rows">阳性率(%)</th>
+              </tr>
+              <tr>
+                <td>南京市交通运输局</td>
+                <td>625</td>
+                <td>511</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>无锡市交通运输局</td>
+                <td>512</td>
+                <td>419</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>徐州市交通运输局</td>
+                <td>411</td>
+                <td>312</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>常州市交通运输局</td>
+                <td>239</td>
+                <td>185</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>苏州市交通运输局</td>
+                <td>618</td>
+                <td>442</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>南通市交通运输局</td>
+                <td>395</td>
+                <td>286</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>连云港市交通运输局</td>
+                <td>188</td>
+                <td>112</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>淮安市交通运输局</td>
+                <td>332</td>
+                <td>221</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>盐城市交通运输局</td>
+                <td>332</td>
+                <td>212</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>扬州市交通运输局</td>
+                <td>257</td>
+                <td>193</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>镇江市交通运输局</td>
+                <td>236</td>
+                <td>124</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>泰州市交通运输局</td>
+                <td>257</td>
+                <td>192</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>宿迁市交通运输局</td>
+                <td>188</td>
+                <td>82</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
               </tr>
               <tr>
                 <td>南京支队</td>
-                <td>1302</td>
-                <td>476</td>
+                <td>76</td>
+                <td>47</td>
                 <td>12</td>
                 <td>8.29</td>
                 <td>9.2</td>
               </tr>
               <tr>
-                <td>宿迁支队</td>
-                <td>1242</td>
-                <td>416</td>
+                <td>苏州支队</td>
+                <td>48</td>
+                <td>25</td>
                 <td>5</td>
                 <td>3.88</td>
                 <td>3.4</td>
               </tr>
               <tr>
-                <td>徐州支队</td>
-                <td>1204</td>
-                <td>386</td>
+                <td>京沪支队</td>
+                <td>68</td>
+                <td>36</td>
                 <td>1</td>
                 <td>2.18</td>
                 <td>1.3</td>
               </tr>
               <tr>
-                <td>无锡支队</td>
-                <td>1152</td>
-                <td>322</td>
+                <td>连徐支队</td>
+                <td>79</td>
+                <td>32</td>
                 <td>4</td>
                 <td>2.09</td>
                 <td>5.4</td>
               </tr>
               <tr>
-                <td>苏州支队</td>
-                <td>1109</td>
-                <td>216</td>
+                <td>宁杭支队</td>
+                <td>59</td>
+                <td>26</td>
                 <td>3</td>
                 <td>1.39</td>
                 <td>1.7</td>
               </tr>
               <tr>
-                <td>淮安支队</td>
-                <td>802</td>
+                <td>宁沪支队</td>
+                <td>179</td>
                 <td>139</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>宁连支队</td>
+                <td>84</td>
+                <td>39</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>宁通支队</td>
+                <td>94</td>
+                <td>59</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>徐盐支队</td>
+                <td>89</td>
+                <td>64</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>盐锡支队</td>
+                <td>83</td>
+                <td>61</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>沿海支队</td>
+                <td>72</td>
+                <td>53</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>沿江支队</td>
+                <td>108</td>
+                <td>92</td>
                 <td>3</td>
                 <td>3.46</td>
                 <td>2.6</td>
@@ -266,7 +418,7 @@
         </div>
         <div class="model">
           <div class="panel">
-            <span class="tit">案件特征分析</span>
+            <span class="tit">处罚案件特征分析</span>
             <!-- <ul class="range-opt">
               <li class="range year">最近一年</li>
               <li class="range mounth">最近一月</li>
