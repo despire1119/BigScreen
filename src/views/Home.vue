@@ -430,9 +430,9 @@ export default {
       }, 5300)
       setTimeout(() => {
         eee.lineMove([1200, 400], [102, 190], () => {
-          this.ifFinish = true
           console.log(1)
         })
+        this.ifFinish = true
       }, 6000)
     },
     async upload(e) {
