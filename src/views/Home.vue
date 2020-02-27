@@ -6,6 +6,11 @@
       <span class="logo">
         <img src="@/assets/images/logo.png">
       </span>
+      <ul class="range-opt">
+        <li class="range year">最近一年</li>
+        <li class="range mounth">最近一月</li>
+        <li class="range day">当日</li>
+      </ul>
       <span class="time-stamp">2020年1月7日 12:35:33</span>
     </div>
     <div class="body">
@@ -94,21 +99,16 @@
         <div class="model">
           <div class="panel">
             <span class="tit">机构人均执法工作量</span>
-            <!-- <ul class="range-opt">
-              <li class="range year">最近一年</li>
-              <li class="range mounth">最近一月</li>
-              <li class="range day">当日</li>
-            </ul> -->
           </div>
-          <div class="table-area">
+          <div class="table-area meal-table">
             <table>
               <tr class="table-header">
-                <th>机构</th>
-                <th>总人数</th>
-                <th>执法岗位人数</th>
-                <th>人均行政检查（件）</th>
-                <th>人均行政处罚（件）</th>
-                <th>阳性率</th>
+                <th class="rows">机构</th>
+                <th class="rows">总人数</th>
+                <th class="rows">执法岗位人数</th>
+                <th class="rows">人均行政检查（件）</th>
+                <th class="rows">人均行政处罚（件）</th>
+                <th class="rows">阳性率</th>
               </tr>
               <tr>
                 <td>南京支队</td>
@@ -116,6 +116,7 @@
                 <td>476</td>
                 <td>12</td>
                 <td>8.29</td>
+                <td>9.2</td>
               </tr>
               <tr>
                 <td>宿迁支队</td>
@@ -123,6 +124,7 @@
                 <td>416</td>
                 <td>5</td>
                 <td>3.88</td>
+                <td>3.4</td>
               </tr>
               <tr>
                 <td>徐州支队</td>
@@ -130,6 +132,7 @@
                 <td>386</td>
                 <td>1</td>
                 <td>2.18</td>
+                <td>1.3</td>
               </tr>
               <tr>
                 <td>无锡支队</td>
@@ -137,6 +140,7 @@
                 <td>322</td>
                 <td>4</td>
                 <td>2.09</td>
+                <td>5.4</td>
               </tr>
               <tr>
                 <td>苏州支队</td>
@@ -144,6 +148,7 @@
                 <td>216</td>
                 <td>3</td>
                 <td>1.39</td>
+                <td>1.7</td>
               </tr>
               <tr>
                 <td>淮安支队</td>
@@ -151,6 +156,7 @@
                 <td>139</td>
                 <td>3</td>
                 <td>3.46</td>
+                <td>2.6</td>
               </tr>
             </table>
           </div>
@@ -287,6 +293,7 @@ import sunOpt from '@/charts/sunOpt'
 import rankOpt from '@/charts/rankOpt'
 import caseOpt from '@/charts/caseOpt'
 import typeOpt from '@/charts/typeOpt'
+import { createIScroller } from '@/utils/iscrollTable'
 
 export default {
   name: 'Home',
@@ -295,11 +302,16 @@ export default {
     return {
       adCode: 320000, // 江苏省行政区代码
       depth: 2,
-      ifFinish: false
+      ifFinish: false,
+      scroll: {
+        scroller: null
+      }
     }
   },
   computed: {},
   mounted() {
+    // 悬浮表头table
+    this.scroll.scroller = createIScroller('.meal-table')
     // 地图初始化
     const map = new AMap.Map('container', {
       mapStyle: 'amap://styles/4ab0161fdad52fd5c833bd3cb16bafec',
@@ -415,11 +427,12 @@ export default {
       }, 4500)
       setTimeout(() => {
         ddd.lineMove([920, 430], [275, 200])
-        this.ifFinish = true
       }, 5300)
       setTimeout(() => {
-        eee.lineMove([800, 350], [80, 340])
-        this.ifFinish = true
+        eee.lineMove([1200, 400], [102, 190], () => {
+          this.ifFinish = true
+          console.log(1)
+        })
       }, 6000)
     },
     async upload(e) {
@@ -483,6 +496,29 @@ export default {
 <style lang="stylus" scoped>
 .home
   position relative
+.range-opt
+  position absolute
+  left 120px
+  top 50px
+  display flex
+  .range
+    cursor pointer
+    width 72px
+    height 24px
+    line-height 24px
+    color #fff
+    text-align center
+    font-size 14px
+    border 1px dashed #fff
+    border-radius 4px
+    &:not(:last-child)
+      margin-right 12px
+  .year
+    background-color rgba(41, 131, 240, 0.43)
+  .mounth
+    background-color rgba(30, 214, 142, 0.43)
+  .day
+    background-color rgba(165, 53, 251, 0.43)
 .animation-cover
   position absolute
   top 94px
@@ -580,6 +616,8 @@ export default {
       display none
     table
       margin-bottom 10px
+      .rows
+
       th
         padding 10px 0
         background-color #283052
@@ -597,25 +635,6 @@ export default {
       font-size 18px
       font-weight 500
       color #ffffff
-    .range-opt
-      display flex
-      .range
-        width 72px
-        height 24px
-        line-height 24px
-        color #fff
-        text-align center
-        font-size 14px
-        border 1px dashed #fff
-        border-radius 4px
-        &:not(:last-child)
-          margin-right 12px
-      .year
-        background-color rgba(41, 131, 240, 0.43)
-      .mounth
-        background-color rgba(30, 214, 142, 0.43)
-      .day
-        background-color rgba(165, 53, 251, 0.43)
     .search
       display flex
       width 146px
