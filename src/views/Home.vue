@@ -4,13 +4,12 @@
       <!-- <span class="title">江苏省交通运输综合行政执法数据分析与监督窗</span> -->
       <span class="title">江苏省交通运输综合行政执法监督窗</span>
       <span class="logo">
-        <img src="@/assets/images/logo.png">
+        <ul class="range-opt">
+          <li class="range year">最近一年</li>
+          <li class="range mounth">最近一月</li>
+          <li class="range day">当日</li>
+        </ul>
       </span>
-      <ul class="range-opt">
-        <li class="range year">最近一年</li>
-        <li class="range mounth">最近一月</li>
-        <li class="range day">当日</li>
-      </ul>
       <span class="time-stamp">2020年1月7日 12:35:33</span>
     </div>
     <div class="body">
@@ -650,8 +649,6 @@ export default {
   position relative
 .range-opt
   position absolute
-  left 120px
-  top 50px
   display flex
   .range
     cursor pointer
