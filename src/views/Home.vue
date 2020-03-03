@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" style="width: 100%; height: 100%; positon: relative">
     <div class="top-bar">
       <!-- <span class="title">江苏省交通运输综合行政执法数据分析与监督窗</span> -->
       <span class="title">江苏省交通运输综合行政执法监督窗</span>
@@ -719,7 +719,8 @@ export default {
   .left-area
     width 510px
   .linkage-area
-    flex 1
+    // flex 1
+    width 823px
     margin 0 12px
     .map
       position relative
