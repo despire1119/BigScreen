@@ -10,7 +10,7 @@ export default {
   },
   xAxis: {
     type: 'category',
-    data: ['道路', '工程', '水上'],
+    data: ['道路', '水上', '工程'],
     lineStyle: {
       color: '#CCCCCC',
       width: 0,
@@ -26,6 +26,7 @@ export default {
     }
   },
   yAxis: {
+    max: 300,
     axisLine: {
       show: false
     },

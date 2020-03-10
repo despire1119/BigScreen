@@ -15,11 +15,12 @@ export default {
     type: 'sunburst',
     data: SunData,
     sort: null,
-    radius: [0, '100%'],
+    radius: [0, '90%'],
     label: {
       rotate: 'radial',
       minAngle: 5,
-      fontSize: 16
+      fontSize: 16,
+      fontWeight: 100
     },
     itemStyle: {
       normal: {

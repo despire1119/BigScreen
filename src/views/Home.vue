@@ -85,7 +85,7 @@
         <div class="model">
           <div style="flex:1">
             <div class="panel">
-              <span class="tit">支队案件量</span>
+              <span class="tit">支队执法工作量</span>
               <!-- <ul class="range-opt">
                 <li class="range year">最近一年</li>
                 <li class="range mounth">最近一月</li>
@@ -109,10 +109,10 @@
                 <th class="rows">执法岗位人数</th>
                 <th class="rows">人均行政检查(件)</th>
                 <th class="rows">人均行政处罚(件)</th>
-                <th class="rows">阳性率(%)</th>
+                <th class="rows">违规率(%)</th>
               </tr>
               <tr>
-                <td>南京市交通运输局</td>
+                <td>南京市局</td>
                 <td>625</td>
                 <td>511</td>
                 <td>17</td>
@@ -120,7 +120,7 @@
                 <td>5.3</td>
               </tr>
               <tr>
-                <td>无锡市交通运输局</td>
+                <td>无锡市局</td>
                 <td>512</td>
                 <td>419</td>
                 <td>9</td>
@@ -128,7 +128,7 @@
                 <td>1.8</td>
               </tr>
               <tr>
-                <td>徐州市交通运输局</td>
+                <td>徐州市局</td>
                 <td>411</td>
                 <td>312</td>
                 <td>12</td>
@@ -136,7 +136,7 @@
                 <td>1.3</td>
               </tr>
               <tr>
-                <td>常州市交通运输局</td>
+                <td>常州市局</td>
                 <td>239</td>
                 <td>185</td>
                 <td>12</td>
@@ -144,7 +144,7 @@
                 <td>4.1</td>
               </tr>
               <tr>
-                <td>苏州市交通运输局</td>
+                <td>苏州市局</td>
                 <td>618</td>
                 <td>442</td>
                 <td>13</td>
@@ -152,7 +152,7 @@
                 <td>6.8</td>
               </tr>
               <tr>
-                <td>南通市交通运输局</td>
+                <td>南通市局</td>
                 <td>395</td>
                 <td>286</td>
                 <td>18</td>
@@ -160,7 +160,7 @@
                 <td>2.2</td>
               </tr>
               <tr>
-                <td>连云港市交通运输局</td>
+                <td>连云港市局</td>
                 <td>188</td>
                 <td>112</td>
                 <td>13</td>
@@ -168,7 +168,7 @@
                 <td>1.1</td>
               </tr>
               <tr>
-                <td>淮安市交通运输局</td>
+                <td>淮安市局</td>
                 <td>332</td>
                 <td>221</td>
                 <td>9</td>
@@ -176,7 +176,7 @@
                 <td>7.3</td>
               </tr>
               <tr>
-                <td>盐城市交通运输局</td>
+                <td>盐城市局</td>
                 <td>332</td>
                 <td>212</td>
                 <td>4</td>
@@ -184,7 +184,7 @@
                 <td>4.9</td>
               </tr>
               <tr>
-                <td>扬州市交通运输局</td>
+                <td>扬州市局</td>
                 <td>257</td>
                 <td>193</td>
                 <td>5</td>
@@ -192,7 +192,7 @@
                 <td>6.1</td>
               </tr>
               <tr>
-                <td>镇江市交通运输局</td>
+                <td>镇江市局</td>
                 <td>236</td>
                 <td>124</td>
                 <td>9</td>
@@ -200,7 +200,7 @@
                 <td>1.3</td>
               </tr>
               <tr>
-                <td>泰州市交通运输局</td>
+                <td>泰州市局</td>
                 <td>257</td>
                 <td>192</td>
                 <td>7</td>
@@ -208,7 +208,7 @@
                 <td>1.6</td>
               </tr>
               <tr>
-                <td>宿迁市交通运输局</td>
+                <td>宿迁市局</td>
                 <td>188</td>
                 <td>82</td>
                 <td>3</td>
@@ -317,7 +317,7 @@
       </div>
       <div class="linkage-area">
         <div class="map" style="margin-bottom: 10px">
-          <div id="container" style="height: 750px" />
+          <div id="container" style="height: 660px" />
           <button class="moke" :class="{ 'if-finish': !ifFinish }" @click="animMokeFrame()">数据动画模拟</button>
         </div>
         <div class="model">
@@ -510,9 +510,9 @@ export default {
     const rank = this.echarts.init(document.getElementById('analysis'))
     const sun = this.echarts.init(document.getElementById('sun-map'))
 
-    chart1.setOption(this.changeOption([120, 60, 1300]))
-    chart2.setOption(this.changeOption([3, 9, 52]))
-    chart3.setOption(this.changeOption([1, 5, 2]))
+    chart1.setOption(this.changeOption([273, 300, 60]))
+    chart2.setOption(this.changeOption([41, 52, 2]))
+    chart3.setOption(this.changeOption([1, 2, 0]))
     // chart4.setOption(this.changOption([2052, 2246, 3200]))
     cases.setOption(caseOpt)
     rank.setOption(rankOpt)
@@ -568,21 +568,21 @@ export default {
         percent: 0
       })
       // 案件飞线模拟
-      bez.lineMove([1140, 530], [220, 335])
+      bez.lineMove([1140, 530], [220, 323])
       setTimeout(() => {
-        bezier.lineMove([1200, 400], [102, 190])
+        bezier.lineMove([1200, 400], [72, 195])
       }, 1800)
       setTimeout(() => {
-        bbb.lineMove([980, 190], [55, 335])
+        bbb.lineMove([980, 190], [50, 212])
       }, 2500)
       setTimeout(() => {
-        ccc.lineMove([800, 350], [80, 340])
+        ccc.lineMove([800, 350], [105, 315])
       }, 4500)
       setTimeout(() => {
-        ddd.lineMove([920, 430], [275, 200])
+        ddd.lineMove([920, 430], [250, 315])
       }, 5300)
       setTimeout(() => {
-        eee.lineMove([1200, 400], [102, 190], () => {
+        eee.lineMove([1200, 400], [102, 315], () => {
           console.log(1)
         })
         this.ifFinish = true
@@ -727,7 +727,7 @@ export default {
     .map
       position relative
       width 100%
-      height 750px
+      height 660px
       box-shadow 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
     .moke
       position absolute
@@ -754,14 +754,16 @@ export default {
     display flex
     justify-content space-between
     .img-contain
-      width 260px
+      width 250px
+      height 219px
       img
         width 100%
+        height 100%
   .sun-map
     flex 1
-    height 424px
+    height 414px
   .table-area
-    height 196px
+    height 226px
     overflow auto
     position relative
     &::-webkit-scrollbar
@@ -771,7 +773,8 @@ export default {
       .rows
 
       th
-        padding 10px 0
+        padding 10px 5px
+        font-size 16px
         background-color #283052
       td
         font-size 16px
@@ -810,28 +813,28 @@ export default {
   .container
     display flex
     justify-content space-around
-    margin-bottom 9px
     .img
       width 142px
       height 107px
       background-color #CCC
     .row
+      font-size 16px
       p
         margin-bottom 5px
   .bottom
     display flex
     align-items center
     justify-content space-around
-    height 50px
+    height 40px
     font-size 18px
     font-weight 500
     background-color rgba(33, 114, 249, 0.35)
     .fee
       font-size 22px
   .cases-analysis
-    height 195px
+    height 225px
   .scroll-box
-    height 293px
+    height 223px
     overflow-y auto
     .case-bar
       height 360px
@@ -882,6 +885,6 @@ export default {
         background-color #1F3F7F
         border-radius 4px
     .chart
-      height 220px
+      height 200px
       padding 0 20px
 </style>
