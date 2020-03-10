@@ -92,7 +92,9 @@
                 <li class="range day">当日</li>
               </ul> -->
             </div>
-            <div id="cases" class="case-bar" />
+            <div class="scroll-box">
+              <div id="cases" class="case-bar" />
+            </div>
           </div>
         </div>
         <div class="model">
@@ -828,8 +830,11 @@ export default {
       font-size 22px
   .cases-analysis
     height 195px
-  .case-bar
+  .scroll-box
     height 293px
+    overflow-y auto
+    .case-bar
+      height 360px
   .list-content
     display flex
     justify-content space-around
