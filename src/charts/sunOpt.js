@@ -18,11 +18,13 @@ export default {
     radius: [0, '100%'],
     label: {
       rotate: 'radial',
-      minAngle: 5
+      minAngle: 5,
+      fontSize: 16
     },
     itemStyle: {
       normal: {
-        borderColor: '#19203D'
+        borderColor: '#19203D',
+        fontSize: '16'
       }
     },
     levels: [

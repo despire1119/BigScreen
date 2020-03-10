@@ -315,7 +315,7 @@
       </div>
       <div class="linkage-area">
         <div class="map" style="margin-bottom: 10px">
-          <div id="container" style="height: 732px" />
+          <div id="container" style="height: 750px" />
           <button class="moke" :class="{ 'if-finish': !ifFinish }" @click="animMokeFrame()">数据动画模拟</button>
         </div>
         <div class="model">
@@ -652,12 +652,12 @@ export default {
   display flex
   .range
     cursor pointer
-    width 72px
-    height 24px
-    line-height 24px
+    width 78px
+    height 28px
+    line-height 28px
     color #fff
     text-align center
-    font-size 14px
+    font-size 18px
     border 1px dashed #fff
     border-radius 4px
     &:not(:last-child)
@@ -706,7 +706,7 @@ export default {
     top 58px
     right 42px
     font-weight 500
-    font-size 16px
+    font-size 20px
     color rgba(103, 206, 235, 1)
   .title
     font-size 36px
@@ -725,7 +725,7 @@ export default {
     .map
       position relative
       width 100%
-      height 732px
+      height 750px
       box-shadow 0px 0px 7px 0px rgba(0, 0, 0, 0.35)
     .moke
       position absolute
@@ -737,7 +737,7 @@ export default {
       color #fff
       border-radius 5px
       background-color #27cefe
-      font-size 14px
+      font-size 18px
     .if-finish
       background-color #ddd
   .right-area
@@ -757,7 +757,7 @@ export default {
         width 100%
   .sun-map
     flex 1
-    height 410px
+    height 424px
   .table-area
     height 196px
     overflow auto
@@ -772,6 +772,7 @@ export default {
         padding 10px 0
         background-color #283052
       td
+        font-size 16px
         padding 10px 0
         text-align center
         border-bottom 1px solid #33395A
@@ -782,7 +783,7 @@ export default {
     align-items center
     padding 14px 12px
     .tit
-      font-size 18px
+      font-size 20px
       font-weight 500
       color #ffffff
     .search
@@ -820,11 +821,11 @@ export default {
     align-items center
     justify-content space-around
     height 50px
-    font-size 14px
+    font-size 18px
     font-weight 500
     background-color rgba(33, 114, 249, 0.35)
     .fee
-      font-size 16px
+      font-size 22px
   .cases-analysis
     height 195px
   .case-bar
@@ -842,17 +843,17 @@ export default {
       .count
         text-align center
         color #ffffff
-        font-size 24px
+        font-size 28px
         font-weight bold
         font-family Source Han Sans CN
       .des
         text-align center
-        font-size 14px
+        font-size 18px
         color #ccc
       .chain
-        font-size 16px
+        font-size 20px
         text-align center
-        line-height 16px
+        line-height 20px
         span
           width 11px
           height 17px
@@ -868,10 +869,10 @@ export default {
       .go-chart
         margin-top 8px
         width 102px
-        height 28px
+        height 30px
         text-align center
         color #ffffff
-        font-size 14px
+        font-size 20px
         font-weight 500
         background-color #1F3F7F
         border-radius 4px

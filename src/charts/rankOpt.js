@@ -6,7 +6,8 @@ export default {
     axisPointer: {
       type: 'cross',
       crossStyle: {
-        color: '#999'
+        color: '#999',
+        fontSize: 18
       }
     }
   },
@@ -20,7 +21,8 @@ export default {
     right: '1%',
     data: ['日间', '夜间', '总量'],
     textStyle: {
-      color: '#FFFFFF'
+      color: '#FFFFFF',
+      fontSize: 16
     }
   },
   xAxis: [
@@ -52,7 +54,7 @@ export default {
         rotate: 40,
         textStyle: {
           color: '#B4B8C7',
-          fontSize: '12'
+          fontSize: 16
         }
       }
     }
@@ -69,7 +71,7 @@ export default {
         show: true,
         textStyle: {
           color: '#B4B8C7',
-          fontSize: '12'
+          fontSize: 16
         }
       },
       splitLine: {

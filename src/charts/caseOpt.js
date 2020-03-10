@@ -52,7 +52,8 @@ export default {
     axisLabel: {
       show: true,
       textStyle: {
-        color: '#fff'
+        color: '#fff',
+        fontSize: 16
       }
     }
   },
@@ -73,8 +74,8 @@ export default {
             { offset: 0, color: '#0C80DA' }, // 柱图渐变色
             // { offset: 0.4, color: '#0C80DA' }, // 柱图渐变色
             { offset: 1, color: '#234BE1' } // 柱图渐变色
-          ])
-          // color: ''
+          ]),
+          fontSize: 16
         }
       },
       data: data1

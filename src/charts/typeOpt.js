@@ -21,7 +21,7 @@ export default {
       rotate: 40,
       textStyle: {
         color: '#CCC',
-        fontSize: '12'
+        fontSize: 13
       }
     }
   },
