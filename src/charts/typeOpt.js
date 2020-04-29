@@ -5,12 +5,12 @@ export default {
   grid: {
     top: '10%',
     right: '0',
-    bottom: '15%',
-    left: '8%'
+    bottom: '22%',
+    left: '9%'
   },
   xAxis: {
     type: 'category',
-    data: ['道路', '水上', '工程'],
+    data: ['办结', '超期办结', '超期未办结'],
     lineStyle: {
       color: '#CCCCCC',
       width: 0,
