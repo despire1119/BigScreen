@@ -5,8 +5,8 @@
       <span class="title">泗洪县公安局警务监督平台</span>
       <span class="logo">
         <ul class="range-opt">
-          <li class="range year">最近一年</li>
-          <li class="range mounth">最近一月</li>
+          <li class="range year" style="opacity: .7">最近一年</li>
+          <li class="range mounth" style="opacity: .7">最近一月</li>
           <li class="range day">当日</li>
         </ul>
       </span>
@@ -104,252 +104,252 @@
           <div class="table-area meal-table">
             <table>
               <tr class="table-header">
+                <th class="rows">排名</th>
                 <th class="rows">机构</th>
                 <th class="rows">总人数</th>
                 <th class="rows">接处警得分</th>
                 <th class="rows">人均接处警</th>
                 <th class="rows">人均办案</th>
-                <th class="rows">违规率(%)</th>
               </tr>
               <tr>
+                <td>1</td>
                 <td>重岗派出所</td>
-                <td>625</td>
-                <td>511</td>
+                <td>6</td>
+                <td>15.1</td>
                 <td>17</td>
                 <td>5.46</td>
-                <td>5.3</td>
               </tr>
               <tr>
+                <td>2</td>
                 <td>孙圆派出所</td>
-                <td>512</td>
-                <td>419</td>
+                <td>5</td>
+                <td>14.9</td>
                 <td>9</td>
                 <td>1.46</td>
-                <td>1.8</td>
               </tr>
               <tr>
+                <td>3</td>
                 <td>梅花派出所</td>
-                <td>411</td>
-                <td>312</td>
+                <td>4</td>
+                <td>13.2</td>
                 <td>12</td>
                 <td>3.14</td>
-                <td>1.3</td>
               </tr>
               <tr>
+                <td>4</td>
                 <td>瑶沟派出所</td>
-                <td>239</td>
-                <td>185</td>
+                <td>9</td>
+                <td>18.5</td>
                 <td>12</td>
                 <td>3.46</td>
-                <td>4.1</td>
               </tr>
               <tr>
+                <td>5</td>
                 <td>朱湖派出所</td>
-                <td>618</td>
-                <td>442</td>
+                <td>6</td>
+                <td>44.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>6.8</td>
               </tr>
               <tr>
+                <td>6</td>
                 <td>桥南派出所</td>
-                <td>395</td>
-                <td>286</td>
+                <td>9</td>
+                <td>28.6</td>
                 <td>18</td>
                 <td>3.46</td>
-                <td>2.2</td>
               </tr>
               <tr>
+                <td>7</td>
                 <td>临淮派出所</td>
-                <td>188</td>
-                <td>112</td>
+                <td>8</td>
+                <td>11.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>1.1</td>
               </tr>
               <tr>
+                <td>7</td>
                 <td>半城派出所</td>
-                <td>332</td>
-                <td>221</td>
+                <td>2</td>
+                <td>22.1</td>
                 <td>9</td>
                 <td>3.46</td>
-                <td>7.3</td>
               </tr>
               <tr>
+                <td>8</td>
                 <td>峰山派出所</td>
-                <td>332</td>
-                <td>212</td>
+                <td>3</td>
+                <td>21.2</td>
                 <td>4</td>
                 <td>3.46</td>
-                <td>4.9</td>
               </tr>
               <tr>
+                <td>9</td>
                 <td>车门派出所</td>
-                <td>257</td>
-                <td>193</td>
+                <td>2</td>
+                <td>19.3</td>
                 <td>5</td>
                 <td>3.46</td>
-                <td>6.1</td>
               </tr>
               <tr>
+                <td>10</td>
                 <td>青阳派出所</td>
-                <td>236</td>
-                <td>124</td>
+                <td>6</td>
+                <td>12.4</td>
                 <td>9</td>
                 <td>3.46</td>
-                <td>1.3</td>
               </tr>
               <tr>
+                <td>11</td>
                 <td>双沟派出所</td>
-                <td>257</td>
-                <td>192</td>
+                <td>7</td>
+                <td>19.2</td>
                 <td>7</td>
                 <td>3.46</td>
-                <td>1.6</td>
               </tr>
               <tr>
+                <td>12</td>
                 <td>归仁派出所</td>
-                <td>188</td>
-                <td>82</td>
+                <td>8</td>
+                <td>8.2</td>
                 <td>3</td>
                 <td>3.46</td>
-                <td>3.8</td>
               </tr>
               <tr>
+                <td>13</td>
                 <td>龙集派出所</td>
-                <td>76</td>
-                <td>47</td>
+                <td>6</td>
+                <td>4.7</td>
                 <td>12</td>
                 <td>8.29</td>
-                <td>8.2</td>
               </tr>
               <tr>
+                <td>14</td>
                 <td>魏营派出所</td>
-                <td>48</td>
-                <td>25</td>
+                <td>8</td>
+                <td>2.5</td>
                 <td>9</td>
                 <td>3.88</td>
-                <td>3.4</td>
               </tr>
               <tr>
+                <td>15</td>
                 <td>界集派出所</td>
-                <td>68</td>
-                <td>36</td>
+                <td>8</td>
+                <td>3.6</td>
                 <td>9</td>
                 <td>2.18</td>
-                <td>1.3</td>
               </tr>
               <tr>
+                <td>16</td>
                 <td>石集派出所</td>
-                <td>79</td>
-                <td>32</td>
+                <td>9</td>
+                <td>3.2</td>
                 <td>23</td>
                 <td>2.09</td>
-                <td>5.4</td>
               </tr>
               <tr>
+                <td>17</td>
                 <td>太平派出所</td>
-                <td>59</td>
-                <td>26</td>
+                <td>5</td>
+                <td>2.6</td>
                 <td>10</td>
                 <td>1.39</td>
-                <td>1.7</td>
               </tr>
               <tr>
+                <td>18</td>
                 <td>金锁派出所</td>
-                <td>179</td>
-                <td>139</td>
+                <td>7</td>
+                <td>13.9</td>
                 <td>15</td>
                 <td>3.46</td>
-                <td>2.6</td>
               </tr>
               <tr>
+                <td>19</td>
                 <td>上塘派出所</td>
-                <td>84</td>
-                <td>39</td>
+                <td>8</td>
+                <td>3.9</td>
                 <td>19</td>
                 <td>3.46</td>
-                <td>7.6</td>
               </tr>
               <tr>
+                <td>20</td>
                 <td>临淮派出所</td>
-                <td>94</td>
-                <td>59</td>
+                <td>4</td>
+                <td>5.9</td>
                 <td>23</td>
                 <td>3.46</td>
-                <td>5.0</td>
               </tr>
               <tr>
+                <td>21</td>
                 <td>陈圩派出所</td>
-                <td>89</td>
-                <td>64</td>
+                <td>8</td>
+                <td>6.4</td>
                 <td>16</td>
                 <td>3.46</td>
-                <td>9.1</td>
               </tr>
               <tr>
+                <td>22</td>
                 <td>城头派出所</td>
-                <td>83</td>
-                <td>61</td>
+                <td>3</td>
+                <td>6.1</td>
                 <td>18</td>
                 <td>3.46</td>
-                <td>3.9</td>
               </tr>
               <tr>
+                <td>23</td>
                 <td>瑶沟派出所</td>
-                <td>72</td>
-                <td>53</td>
+                <td>2</td>
+                <td>5.3</td>
                 <td>11</td>
                 <td>3.46</td>
-                <td>1.8</td>
               </tr>
               <tr>
+                <td>24</td>
                 <td>曹庙派出所</td>
-                <td>108</td>
-                <td>92</td>
+                <td>8</td>
+                <td>9.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>0.9</td>
               </tr>
               <tr>
+                <td>25</td>
                 <td>洪桥路派出所</td>
-                <td>108</td>
-                <td>92</td>
+                <td>8</td>
+                <td>9.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>0.9</td>
               </tr>
               <tr>
+                <td>26</td>
                 <td>车门派出所</td>
-                <td>108</td>
-                <td>92</td>
+                <td>8</td>
+                <td>9.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>0.9</td>
               </tr>
               <tr>
+                <td>27</td>
                 <td>治安管理大队</td>
-                <td>108</td>
-                <td>92</td>
+                <td>8</td>
+                <td>9.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>0.9</td>
               </tr>
               <tr>
+                <td>28</td>
                 <td>水上警察大队</td>
-                <td>108</td>
-                <td>92</td>
+                <td>8</td>
+                <td>9.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>0.9</td>
               </tr>
               <tr>
+                <td>29</td>
                 <td>刑事警察大队</td>
-                <td>108</td>
-                <td>92</td>
+                <td>8</td>
+                <td>9.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>0.9</td>
               </tr>
             </table>
           </div>
@@ -396,7 +396,7 @@
                   <i>靳超</i>
                 </p>
                 <p>
-                  <span>案件办理得分：</span>
+                  <span>案件办理得分:</span>
                   <i>195.4</i>
                 </p>
                 <p>
