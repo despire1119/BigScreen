@@ -24,7 +24,7 @@ export default {
   legend: {
     orient: 'vertical',
     right: '1%',
-    data: ['检查', '处罚', '强制'],
+    data: ['接处警', '案件办理', '超期'],
     textStyle: {
       color: '#FFFFFF'
     }
@@ -36,18 +36,18 @@ export default {
   yAxis: {
     type: 'category',
     data: [
-      '南京支队',
-      '苏州支队',
-      '京沪支队',
-      '连徐支队',
-      '宁杭支队',
-      '宁沪支队',
-      '宁连支队',
-      '宁通支队',
-      '徐盐支队',
-      '盐锡支队',
-      '沿海支队',
-      '沿江支队'
+      '重岗派出所',
+      '孙园派出所',
+      '梅花派出所',
+      '瑶沟派出所',
+      '峰山派出所',
+      '桥南派出所',
+      '青阳派出所',
+      '半城派出所',
+      '双沟派出所',
+      '归仁派出所',
+      '朱湖派出所',
+      '四河派出所'
     ],
     axisLabel: {
       show: true,
@@ -59,7 +59,7 @@ export default {
   },
   series: [
     {
-      name: '检查',
+      name: '接处警',
       type: 'bar',
       stack: '总量',
       barWidth: 10,
@@ -81,7 +81,7 @@ export default {
       data: data1
     },
     {
-      name: '处罚',
+      name: '案件办理',
       type: 'bar',
       stack: '总量',
       barWidth: 10,
@@ -105,7 +105,7 @@ export default {
       data: data2
     },
     {
-      name: '强制',
+      name: '超期',
       type: 'bar',
       stack: '总量',
       barWidth: 10,

@@ -5,12 +5,12 @@
       <!-- <span class="title">金湖县城市大脑领导驾驶舱</span> -->
       <span class="logo">
         <ul class="range-opt">
-          <li class="range year">最近一年</li>
-          <li class="range mounth">最近一月</li>
+          <li class="range year" style="opacity: .7">最近一年</li>
+          <li class="range mounth" style="opacity: .7">最近一月</li>
           <li class="range day">当日</li>
         </ul>
       </span>
-      <span class="time-stamp">2020年1月7日 12:35:33</span>
+      <span class="time-stamp">2020年4月30日 12:35:33</span>
     </div>
     <div class="body">
       <div class="left-area">
@@ -26,9 +26,9 @@
                     <span />
                   </p>
                 </div>
-                <p style="display:flex;justify-content:center">
+                <!-- <p style="display:flex;justify-content:center">
                   <button class="go-chart">查看趋势</button>
-                </p>
+                </p> -->
               </div>
               <div id="chart1" class="chart" />
             </li>
@@ -42,9 +42,9 @@
                     <span />
                   </p>
                 </div>
-                <p style="display:flex;justify-content:center">
+                <!-- <p style="display:flex;justify-content:center">
                   <button class="go-chart">查看趋势</button>
-                </p>
+                </p> -->
               </div>
               <div id="chart2" class="chart" />
             </li>
@@ -58,9 +58,9 @@
                     <span />
                   </p>
                 </div>
-                <p style="display:flex;justify-content:center">
+                <!-- <p style="display:flex;justify-content:center">
                   <button class="go-chart">查看趋势</button>
-                </p>
+                </p> -->
               </div>
               <div id="chart3" class="chart" />
             </li>
@@ -104,6 +104,7 @@
           <div class="table-area meal-table">
             <table>
               <tr class="table-header">
+                <th class="rows">排名</th>
                 <th class="rows">机构</th>
                 <th class="rows">总车量数</th>
                 <th class="rows">司机人数</th>
@@ -117,7 +118,6 @@
                 <td>511</td>
                 <td>17</td>
                 <td>5.46</td>
-                <td>5.3</td>
               </tr>
               <tr>
                 <td>东大紫光</td>
@@ -125,191 +125,230 @@
                 <td>419</td>
                 <td>9</td>
                 <td>1.46</td>
-                <td>1.8</td>
               </tr>
               <tr>
-                <td>裕华货运</td>
-                <td>411</td>
-                <td>312</td>
+                <td>3</td>
+                <td>梅花派出所</td>
+                <td>4</td>
+                <td>13.2</td>
                 <td>12</td>
                 <td>3.14</td>
-                <td>1.3</td>
               </tr>
               <tr>
-                <td>危化专运</td>
-                <td>239</td>
-                <td>185</td>
+                <td>4</td>
+                <td>瑶沟派出所</td>
+                <td>9</td>
+                <td>18.5</td>
                 <td>12</td>
                 <td>3.46</td>
-                <td>4.1</td>
               </tr>
               <tr>
-                <td>苏州市局</td>
-                <td>618</td>
-                <td>442</td>
+                <td>5</td>
+                <td>朱湖派出所</td>
+                <td>6</td>
+                <td>44.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>6.8</td>
               </tr>
               <tr>
-                <td>南通市局</td>
-                <td>395</td>
-                <td>286</td>
+                <td>6</td>
+                <td>桥南派出所</td>
+                <td>9</td>
+                <td>28.6</td>
                 <td>18</td>
                 <td>3.46</td>
-                <td>2.2</td>
               </tr>
               <tr>
-                <td>连云港市局</td>
-                <td>188</td>
-                <td>112</td>
+                <td>7</td>
+                <td>临淮派出所</td>
+                <td>8</td>
+                <td>11.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>1.1</td>
               </tr>
               <tr>
-                <td>淮安市局</td>
-                <td>332</td>
-                <td>221</td>
+                <td>7</td>
+                <td>半城派出所</td>
+                <td>2</td>
+                <td>22.1</td>
                 <td>9</td>
                 <td>3.46</td>
-                <td>7.3</td>
               </tr>
               <tr>
-                <td>盐城市局</td>
-                <td>332</td>
-                <td>212</td>
+                <td>8</td>
+                <td>峰山派出所</td>
+                <td>3</td>
+                <td>21.2</td>
                 <td>4</td>
                 <td>3.46</td>
-                <td>4.9</td>
               </tr>
               <tr>
-                <td>扬州市局</td>
-                <td>257</td>
-                <td>193</td>
+                <td>9</td>
+                <td>车门派出所</td>
+                <td>2</td>
+                <td>19.3</td>
                 <td>5</td>
                 <td>3.46</td>
-                <td>6.1</td>
               </tr>
               <tr>
-                <td>镇江市局</td>
-                <td>236</td>
-                <td>124</td>
+                <td>10</td>
+                <td>青阳派出所</td>
+                <td>6</td>
+                <td>12.4</td>
                 <td>9</td>
                 <td>3.46</td>
-                <td>1.3</td>
               </tr>
               <tr>
-                <td>泰州市局</td>
-                <td>257</td>
-                <td>192</td>
+                <td>11</td>
+                <td>双沟派出所</td>
+                <td>7</td>
+                <td>19.2</td>
                 <td>7</td>
                 <td>3.46</td>
-                <td>1.6</td>
               </tr>
               <tr>
-                <td>宿迁市局</td>
-                <td>188</td>
-                <td>82</td>
+                <td>12</td>
+                <td>归仁派出所</td>
+                <td>8</td>
+                <td>8.2</td>
                 <td>3</td>
                 <td>3.46</td>
-                <td>3.8</td>
               </tr>
               <tr>
-                <td>南京支队</td>
-                <td>76</td>
-                <td>47</td>
+                <td>13</td>
+                <td>龙集派出所</td>
+                <td>6</td>
+                <td>4.7</td>
                 <td>12</td>
                 <td>8.29</td>
-                <td>8.2</td>
               </tr>
               <tr>
-                <td>苏州支队</td>
-                <td>48</td>
-                <td>25</td>
+                <td>14</td>
+                <td>魏营派出所</td>
+                <td>8</td>
+                <td>2.5</td>
                 <td>9</td>
                 <td>3.88</td>
-                <td>3.4</td>
               </tr>
               <tr>
-                <td>京沪支队</td>
-                <td>68</td>
-                <td>36</td>
+                <td>15</td>
+                <td>界集派出所</td>
+                <td>8</td>
+                <td>3.6</td>
                 <td>9</td>
                 <td>2.18</td>
-                <td>1.3</td>
               </tr>
               <tr>
-                <td>连徐支队</td>
-                <td>79</td>
-                <td>32</td>
+                <td>16</td>
+                <td>石集派出所</td>
+                <td>9</td>
+                <td>3.2</td>
                 <td>23</td>
                 <td>2.09</td>
-                <td>5.4</td>
               </tr>
               <tr>
-                <td>宁杭支队</td>
-                <td>59</td>
-                <td>26</td>
+                <td>17</td>
+                <td>太平派出所</td>
+                <td>5</td>
+                <td>2.6</td>
                 <td>10</td>
                 <td>1.39</td>
-                <td>1.7</td>
               </tr>
               <tr>
-                <td>宁沪支队</td>
-                <td>179</td>
-                <td>139</td>
+                <td>18</td>
+                <td>金锁派出所</td>
+                <td>7</td>
+                <td>13.9</td>
                 <td>15</td>
                 <td>3.46</td>
-                <td>2.6</td>
               </tr>
               <tr>
-                <td>宁连支队</td>
-                <td>84</td>
-                <td>39</td>
+                <td>19</td>
+                <td>上塘派出所</td>
+                <td>8</td>
+                <td>3.9</td>
                 <td>19</td>
                 <td>3.46</td>
-                <td>7.6</td>
               </tr>
               <tr>
-                <td>宁通支队</td>
-                <td>94</td>
-                <td>59</td>
+                <td>20</td>
+                <td>临淮派出所</td>
+                <td>4</td>
+                <td>5.9</td>
                 <td>23</td>
                 <td>3.46</td>
-                <td>5.0</td>
               </tr>
               <tr>
-                <td>徐盐支队</td>
-                <td>89</td>
-                <td>64</td>
+                <td>21</td>
+                <td>陈圩派出所</td>
+                <td>8</td>
+                <td>6.4</td>
                 <td>16</td>
                 <td>3.46</td>
-                <td>9.1</td>
               </tr>
               <tr>
-                <td>盐锡支队</td>
-                <td>83</td>
-                <td>61</td>
+                <td>22</td>
+                <td>城头派出所</td>
+                <td>3</td>
+                <td>6.1</td>
                 <td>18</td>
                 <td>3.46</td>
-                <td>3.9</td>
               </tr>
               <tr>
-                <td>沿海支队</td>
-                <td>72</td>
-                <td>53</td>
+                <td>23</td>
+                <td>瑶沟派出所</td>
+                <td>2</td>
+                <td>5.3</td>
                 <td>11</td>
                 <td>3.46</td>
-                <td>1.8</td>
               </tr>
               <tr>
-                <td>沿江支队</td>
-                <td>108</td>
-                <td>92</td>
+                <td>24</td>
+                <td>曹庙派出所</td>
+                <td>8</td>
+                <td>9.2</td>
                 <td>13</td>
                 <td>3.46</td>
-                <td>0.9</td>
+              </tr>
+              <tr>
+                <td>25</td>
+                <td>洪桥路派出所</td>
+                <td>8</td>
+                <td>9.2</td>
+                <td>13</td>
+                <td>3.46</td>
+              </tr>
+              <tr>
+                <td>26</td>
+                <td>车门派出所</td>
+                <td>8</td>
+                <td>9.2</td>
+                <td>13</td>
+                <td>3.46</td>
+              </tr>
+              <tr>
+                <td>27</td>
+                <td>治安管理大队</td>
+                <td>8</td>
+                <td>9.2</td>
+                <td>13</td>
+                <td>3.46</td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td>水上警察大队</td>
+                <td>8</td>
+                <td>9.2</td>
+                <td>13</td>
+                <td>3.46</td>
+              </tr>
+              <tr>
+                <td>29</td>
+                <td>刑事警察大队</td>
+                <td>8</td>
+                <td>9.2</td>
+                <td>13</td>
+                <td>3.46</td>
               </tr>
             </table>
           </div>
@@ -336,11 +375,11 @@
         <div class="model">
           <div style="flex: 1">
             <div class="panel">
-              <span class="tit">曝光台</span>
-              <span class="search">
+              <span class="tit">民警表彰</span>
+              <!-- <span class="search">
                 <input type="text">
                 <i class="tag" />
-              </span>
+              </span> -->
             </div>
             <div class="container">
               <div class="img">
@@ -352,57 +391,49 @@
               </div>
               <div class="row">
                 <p>
-                  <span>车牌号：</span>
-                  <i>苏AY8K32</i>
+                  <span>民警：</span>
+                  <i>靳超</i>
                 </p>
                 <p>
-                  <span>车籍地：</span>
-                  <i>南京</i>
+                  <span>案件办理得分:</span>
+                  <i>195.4</i>
                 </p>
                 <p>
-                  <span>满载质量：</span>
-                  <i>7吨</i>
+                  <span>及时得分：</span>
+                  <i>312.2</i>
                 </p>
                 <p>
-                  <span>整备质量：</span>
-                  <i>2吨</i>
-                </p>
-                <p>
-                  <span>运营证号：</span>
-                  <i>00270039</i>
+                  <span>现场执法扣分：</span>
+                  <i>0</i>
                 </p>
               </div>
               <div class="row">
                 <p>
-                  <span>车辆类型：</span>
-                  <i>轻型</i>
+                  <span>即时排名：</span>
+                  <i>1</i>
                 </p>
                 <p>
-                  <span>车辆用途：</span>
-                  <i>民用爆炸物品</i>
+                  <span>接处警得分：</span>
+                  <i>16.8</i>
                 </p>
                 <p>
-                  <span>车辆寿命：</span>
-                  <i>10年</i>
+                  <span>涉案财务管理：</span>
+                  <i>0</i>
                 </p>
                 <p>
-                  <span>是否列入黑名单：</span>
-                  <i>否</i>
-                </p>
-                <p>
-                  <span>证书有效期：</span>
-                  <i>2023-12-12</i>
+                  <span>信息化应用：</span>
+                  <i>0</i>
                 </p>
               </div>
             </div>
             <div class="bottom">
               <span>
-                <i>累计违法次数：</i>
-                <i class="fee">28次</i>
+                <i>累计接处警数量：</i>
+                <i class="fee">928次</i>
               </span>
               <span>
-                <i>累计违法金额：</i>
-                <i class="fee">9450元</i>
+                <i>累计案件办理数：</i>
+                <i class="fee">450件</i>
               </span>
             </div>
           </div>
@@ -419,14 +450,226 @@
         </div>
         <div class="model">
           <div class="panel">
-            <span class="tit">市民出行结构分析</span>
+            <span class="tit">民警综合排名</span>
             <!-- <ul class="range-opt">
               <li class="range year">最近一年</li>
               <li class="range mounth">最近一月</li>
               <li class="range day">当日</li>
             </ul> -->
           </div>
-          <div id="sun-map" class="sun-map" />
+          <!-- <div id="sun-map" class="sun-map" /> -->
+          <div class="table-area mem-table">
+            <table>
+              <tr class="table-header">
+                <th class="rows">民警</th>
+                <th class="rows">接处警</th>
+                <th class="rows">案件办理</th>
+                <th class="rows">接处警得分</th>
+                <th class="rows">案件办理得分</th>
+                <th class="rows">投诉率(%)</th>
+              </tr>
+              <tr>
+                <td>靳超</td>
+                <td>625</td>
+                <td>511</td>
+                <td>17</td>
+                <td>5.46</td>
+                <td>5.3</td>
+              </tr>
+              <tr>
+                <td>王梁</td>
+                <td>512</td>
+                <td>419</td>
+                <td>9</td>
+                <td>1.46</td>
+                <td>1.8</td>
+              </tr>
+              <tr>
+                <td>陶醉</td>
+                <td>411</td>
+                <td>312</td>
+                <td>12</td>
+                <td>3.14</td>
+                <td>1.3</td>
+              </tr>
+              <tr>
+                <td>黄春榆</td>
+                <td>239</td>
+                <td>185</td>
+                <td>12</td>
+                <td>3.46</td>
+                <td>4.1</td>
+              </tr>
+              <tr>
+                <td>曹玮玮</td>
+                <td>618</td>
+                <td>442</td>
+                <td>13</td>
+                <td>3.46</td>
+                <td>6.8</td>
+              </tr>
+              <tr>
+                <td>朱亮</td>
+                <td>395</td>
+                <td>286</td>
+                <td>18</td>
+                <td>3.46</td>
+                <td>2.2</td>
+              </tr>
+              <tr>
+                <td>赵亮</td>
+                <td>188</td>
+                <td>112</td>
+                <td>13</td>
+                <td>3.46</td>
+                <td>1.1</td>
+              </tr>
+              <tr>
+                <td>罗新丞</td>
+                <td>332</td>
+                <td>221</td>
+                <td>9</td>
+                <td>3.46</td>
+                <td>7.3</td>
+              </tr>
+              <tr>
+                <td>陈杰</td>
+                <td>332</td>
+                <td>212</td>
+                <td>4</td>
+                <td>3.46</td>
+                <td>4.9</td>
+              </tr>
+              <tr>
+                <td>朱玉俊</td>
+                <td>257</td>
+                <td>193</td>
+                <td>5</td>
+                <td>3.46</td>
+                <td>6.1</td>
+              </tr>
+              <tr>
+                <td>马高峰</td>
+                <td>236</td>
+                <td>124</td>
+                <td>9</td>
+                <td>3.46</td>
+                <td>1.3</td>
+              </tr>
+              <tr>
+                <td>梁海峰</td>
+                <td>257</td>
+                <td>192</td>
+                <td>7</td>
+                <td>3.46</td>
+                <td>1.6</td>
+              </tr>
+              <tr>
+                <td>王昆</td>
+                <td>188</td>
+                <td>82</td>
+                <td>3</td>
+                <td>3.46</td>
+                <td>3.8</td>
+              </tr>
+              <tr>
+                <td>戴皓</td>
+                <td>76</td>
+                <td>47</td>
+                <td>12</td>
+                <td>8.29</td>
+                <td>8.2</td>
+              </tr>
+              <tr>
+                <td>李先勇</td>
+                <td>48</td>
+                <td>25</td>
+                <td>9</td>
+                <td>3.88</td>
+                <td>3.4</td>
+              </tr>
+              <tr>
+                <td>饶进波</td>
+                <td>68</td>
+                <td>36</td>
+                <td>9</td>
+                <td>2.18</td>
+                <td>1.3</td>
+              </tr>
+              <tr>
+                <td>陈星驰</td>
+                <td>79</td>
+                <td>32</td>
+                <td>23</td>
+                <td>2.09</td>
+                <td>5.4</td>
+              </tr>
+              <tr>
+                <td>刘星伟</td>
+                <td>59</td>
+                <td>26</td>
+                <td>10</td>
+                <td>1.39</td>
+                <td>1.7</td>
+              </tr>
+              <tr>
+                <td>陈铭枢</td>
+                <td>179</td>
+                <td>139</td>
+                <td>15</td>
+                <td>3.46</td>
+                <td>2.6</td>
+              </tr>
+              <tr>
+                <td>惠坤</td>
+                <td>84</td>
+                <td>39</td>
+                <td>19</td>
+                <td>3.46</td>
+                <td>7.6</td>
+              </tr>
+              <tr>
+                <td>陈重</td>
+                <td>94</td>
+                <td>59</td>
+                <td>23</td>
+                <td>3.46</td>
+                <td>5.0</td>
+              </tr>
+              <tr>
+                <td>许先功</td>
+                <td>89</td>
+                <td>64</td>
+                <td>16</td>
+                <td>3.46</td>
+                <td>9.1</td>
+              </tr>
+              <tr>
+                <td>陈石</td>
+                <td>83</td>
+                <td>61</td>
+                <td>18</td>
+                <td>3.46</td>
+                <td>3.9</td>
+              </tr>
+              <tr>
+                <td>葛正球</td>
+                <td>72</td>
+                <td>53</td>
+                <td>11</td>
+                <td>3.46</td>
+                <td>1.8</td>
+              </tr>
+              <tr>
+                <td>许磊</td>
+                <td>108</td>
+                <td>92</td>
+                <td>13</td>
+                <td>3.46</td>
+                <td>0.9</td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -442,7 +685,7 @@ import Loca from 'Loca'
 import axios from 'axios'
 import { heatmapData } from '@/mockData/heatmapData'
 import { BezierCurve } from '@/utils/animation'
-import sunOpt from '@/charts/sunOpt'
+// import sunOpt from '@/charts/sunOpt'
 import rankOpt from '@/charts/rankOpt'
 import caseOpt from '@/charts/caseOpt'
 import typeOpt from '@/charts/typeOpt'
@@ -468,6 +711,7 @@ export default {
   mounted() {
     // 悬浮表头table
     this.scroll.scroller = createIScroller('.meal-table')
+    this.scroll.scroller = createIScroller('.mem-table')
     // 地图初始化
     const map = new AMap.Map('container', {
       resizeEnable: true,
@@ -512,16 +756,16 @@ export default {
     const cases = this.echarts.init(document.getElementById('cases'))
     // rank
     const rank = this.echarts.init(document.getElementById('analysis'))
-    const sun = this.echarts.init(document.getElementById('sun-map'))
+    // const sun = this.echarts.init(document.getElementById('sun-map'))
 
-    chart1.setOption(this.changeOption([273, 300, 60]))
-    chart2.setOption(this.changeOption([41, 52, 2]))
-    chart3.setOption(this.changeOption([1, 2, 0]))
+    chart1.setOption(this.changeOption([273, 300, 60], ['接警', '立案', '结案']))
+    chart2.setOption(this.changeOption([41, 52, 2], ['登记', '督办', '报结']))
+    chart3.setOption(this.changeOption([1, 2, 0], ['办结', '超期办结', '超期未办']))
     // chart4.setOption(this.changOption([2052, 2246, 3200]))
     cases.setOption(caseOpt)
     rank.setOption(rankOpt)
     // sun
-    sun.setOption(sunOpt)
+    // sun.setOption(sunOpt)
   },
   methods: {
     flyByClick(e) {
@@ -618,35 +862,50 @@ export default {
       )
       console.log(res)
     },
-    initPro(code, dep) {
-      this.adCode = code
-      this.depth = dep
-      return new AMap.DistrictLayer.Province({
-        zIndex: 12,
-        adcode: [code],
-        depth: dep,
-        styles: {
-          fill: properties => {
-            // properties为可用于做样式映射的字段，包含
-            // NAME_CHN:中文名称
-            // adcode_pro
-            // adcode_cit
-            // adcode
-            var adcode = properties.adcode
-            return this.getColorByAdcode(adcode)
-          },
-          'province-stroke': 'cornflowerblue',
-          'city-stroke': 'white', // 中国地级市边界
-          'county-stroke': 'rgba(255,255,255,0.5)' // 中国区县边界
+    initPro(map) {
+      this.districtSearch(map, '江苏省', res => {
+        const bounds = res.districtList[0].boundaries
+        const polygons = []
+        const outer = [
+          new AMap.LngLat(-360, 90, true),
+          new AMap.LngLat(-360, -90, true),
+          new AMap.LngLat(360, -90, true),
+          new AMap.LngLat(360, 90, true)
+        ]
+        const holes = res.districtList[0].boundaries
+        const pathArray = [outer]
+        if (bounds) {
+          for (const item of bounds) {
+            const polygon = new AMap.Polygon({
+              map: map,
+              strokeWeight: 2,
+              path: item,
+              fillOpacity: 0,
+              fillColor: '#000000',
+              strokeColor: '#73c4fb'
+            })
+            polygons.push(polygon)
+          }
         }
+        pathArray.push.apply(pathArray, holes)
+        const pol = new AMap.Polygon({
+          pathL: pathArray,
+          strokeColor: '#00eeff',
+          strokeWeight: 1,
+          fillColor: '#161f47',
+          fillOpacity: '0.8'
+        })
+        pol.setPath(pathArray)
+        map.add(pol)
       })
     },
     getColorByAdcode(adcode) {
       // var gb = Math.random() * 155 + 50
       return '#263153'
     },
-    changeOption(data) {
+    changeOption(data, config) {
       const opt = typeOpt
+      if (config) opt.xAxis.data = config
       opt.series[0]['data'] = data
       return opt
     },
@@ -770,7 +1029,7 @@ export default {
     justify-content space-between
     .img-contain
       width 250px
-      height 219px
+      height 300px
       img
         width 100%
         height 100%
@@ -834,9 +1093,9 @@ export default {
       height 107px
       justify-content center
     .row
-      font-size 16px
+      font-size 18px
       p
-        margin-bottom 5px
+        margin-bottom 36px
   .bottom
     display flex
     align-items center
@@ -901,6 +1160,7 @@ export default {
         background-color #1F3F7F
         border-radius 4px
     .chart
+      margin-top 35px
       height 200px
       padding 0 20px
 </style>
