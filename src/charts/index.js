@@ -17,7 +17,7 @@ export const ranker = {
   legend: {
     orient: 'vertical',
     right: '1%',
-    data: ['日间', '夜间', '总量'],
+    data: ['青年', '中年', '总量'],
     textStyle: {
       color: '#FFFFFF'
     }

@@ -1,8 +1,8 @@
 <template>
   <div class="home" style="width: 100%; height: 100%; positon: relative">
     <div class="top-bar">
-      <!-- <span class="title">江苏省交通运输综合行政执法数据分析与监督窗</span> -->
-      <span class="title">江苏省交通运输综合行政执法监督窗</span>
+      <span class="title">交通运输综合行政执法分析管控中心</span>
+      <!-- <span class="title">金湖县城市大脑领导驾驶舱</span> -->
       <span class="logo">
         <ul class="range-opt">
           <li class="range year">最近一年</li>
@@ -19,8 +19,8 @@
             <li class="panel-list">
               <div class="data-panel">
                 <div class="to-right-line">
-                  <p class="count">1595件</p>
-                  <p class="des">当日行政检查</p>
+                  <p class="count">1595</p>
+                  <p class="des">旅客流量</p>
                   <p class="chain chain-up">
                     <i>8.7%</i>
                     <span />
@@ -35,8 +35,8 @@
             <li class="panel-list">
               <div class="data-panel">
                 <div class="to-right-line">
-                  <p class="count">149件</p>
-                  <p class="des">当日行政处罚</p>
+                  <p class="count">14900</p>
+                  <p class="des">交通运输流量</p>
                   <p class="chain chain-down">
                     <i>-1.7%</i>
                     <span />
@@ -51,8 +51,8 @@
             <li class="panel-list">
               <div class="data-panel">
                 <div class="to-right-line">
-                  <p class="count">92件</p>
-                  <p class="des">当日行政强制</p>
+                  <p class="count">9213</p>
+                  <p class="des">防汛高危指标</p>
                   <p class="chain chain-up">
                     <i>8.7%</i>
                     <span />
@@ -85,7 +85,7 @@
         <div class="model">
           <div style="flex:1">
             <div class="panel">
-              <span class="tit">支队执法工作量</span>
+              <span class="tit">旅客来源结构分析</span>
               <!-- <ul class="range-opt">
                 <li class="range year">最近一年</li>
                 <li class="range mounth">最近一月</li>
@@ -99,20 +99,20 @@
         </div>
         <div class="model">
           <div class="panel">
-            <span class="tit">机构人均执法工作量</span>
+            <span class="tit">交通运行态势</span>
           </div>
           <div class="table-area meal-table">
             <table>
               <tr class="table-header">
                 <th class="rows">机构</th>
-                <th class="rows">总人数</th>
-                <th class="rows">执法岗位人数</th>
-                <th class="rows">人均行政检查(件)</th>
-                <th class="rows">人均行政处罚(件)</th>
-                <th class="rows">违规率(%)</th>
+                <th class="rows">总车量数</th>
+                <th class="rows">司机人数</th>
+                <th class="rows">事故量(件)</th>
+                <th class="rows">司机事故量(件)</th>
+                <th class="rows">事故率(%)</th>
               </tr>
               <tr>
-                <td>南京市局</td>
+                <td>恒达天启</td>
                 <td>625</td>
                 <td>511</td>
                 <td>17</td>
@@ -120,7 +120,7 @@
                 <td>5.3</td>
               </tr>
               <tr>
-                <td>无锡市局</td>
+                <td>东大紫光</td>
                 <td>512</td>
                 <td>419</td>
                 <td>9</td>
@@ -128,7 +128,7 @@
                 <td>1.8</td>
               </tr>
               <tr>
-                <td>徐州市局</td>
+                <td>裕华货运</td>
                 <td>411</td>
                 <td>312</td>
                 <td>12</td>
@@ -136,7 +136,7 @@
                 <td>1.3</td>
               </tr>
               <tr>
-                <td>常州市局</td>
+                <td>危化专运</td>
                 <td>239</td>
                 <td>185</td>
                 <td>12</td>
@@ -317,12 +317,12 @@
       </div>
       <div class="linkage-area">
         <div class="map" style="margin-bottom: 10px">
-          <div id="container" style="height: 660px" />
+          <div id="container" style="height: 660px" @click="flyByClick" />
           <button class="moke" :class="{ 'if-finish': !ifFinish }" @click="animMokeFrame()">数据动画模拟</button>
         </div>
         <div class="model">
           <div class="panel">
-            <span class="tit">案件数量分析图</span>
+            <span class="tit">人口流动趋势分析</span>
             <!-- <ul class="range-opt">
               <li class="range year">最近一年</li>
               <li class="range mounth">最近一月</li>
@@ -336,7 +336,7 @@
         <div class="model">
           <div style="flex: 1">
             <div class="panel">
-              <span class="tit">信息速查</span>
+              <span class="tit">曝光台</span>
               <span class="search">
                 <input type="text">
                 <i class="tag" />
@@ -345,7 +345,7 @@
             <div class="container">
               <div class="img">
                 <img
-                  style="width: 100%; height: 100%"
+                  style="width: auto; height: 100%; margin: auto"
                   src="@/assets/images/pic2571578885543.jpg"
                   alt
                 >
@@ -379,7 +379,7 @@
                 </p>
                 <p>
                   <span>车辆用途：</span>
-                  <i>载货</i>
+                  <i>民用爆炸物品</i>
                 </p>
                 <p>
                   <span>车辆寿命：</span>
@@ -397,11 +397,11 @@
             </div>
             <div class="bottom">
               <span>
-                <i>累计行政处罚次数：</i>
+                <i>累计违法次数：</i>
                 <i class="fee">28次</i>
               </span>
               <span>
-                <i>累计行政处罚金额：</i>
+                <i>累计违法金额：</i>
                 <i class="fee">9450元</i>
               </span>
             </div>
@@ -419,7 +419,7 @@
         </div>
         <div class="model">
           <div class="panel">
-            <span class="tit">处罚案件特征分析</span>
+            <span class="tit">市民出行结构分析</span>
             <!-- <ul class="range-opt">
               <li class="range year">最近一年</li>
               <li class="range mounth">最近一月</li>
@@ -448,6 +448,9 @@ import caseOpt from '@/charts/caseOpt'
 import typeOpt from '@/charts/typeOpt'
 import { createIScroller } from '@/utils/iscrollTable'
 
+const originList = [[72, 195], [220, 323], [50, 212], [105, 315], [250, 315], [102, 315]]
+const colorList = ['#fcff0e', '#00ffcc', '#27cefe']
+
 export default {
   name: 'Home',
   components: {},
@@ -455,7 +458,7 @@ export default {
     return {
       adCode: 320000, // 江苏省行政区代码
       depth: 2,
-      ifFinish: false,
+      ifFinish: true,
       scroll: {
         scroller: null
       }
@@ -467,18 +470,19 @@ export default {
     this.scroll.scroller = createIScroller('.meal-table')
     // 地图初始化
     const map = new AMap.Map('container', {
+      resizeEnable: true,
       mapStyle: 'amap://styles/4ab0161fdad52fd5c833bd3cb16bafec',
-      center: [119.82, 32.27],
+      center: [118.796601, 31.958548],
       viewMode: '3D',
-      pitch: 35,
-      zoom: 7.8
+      pitch: 55,
+      zoom: 12
     })
-    map.plugin(['AMap.Scale', 'AMap.DistrictLayer'], () => {
-      map.addControl(new AMap.Scale())
-      // map.addControl(new AMap.DistrictLayer());
-      // 省份图层
-      this.initPro(this.adCode, this.depth).setMap(map)
-    })
+    // map.plugin(['AMap.Scale', 'AMap.DistrictLayer'], () => {
+    //   map.addControl(new AMap.Scale())
+    //   // map.addControl(new AMap.DistrictLayer());
+    //   // 省份图层
+    //   this.initPro(this.adCode, this.depth).setMap(map)
+    // })
     map.on('complete', () => {
       // 热力图数据模拟
       const layer = new Loca.HeatmapLayer({
@@ -494,9 +498,9 @@ export default {
         }
       })
       layer.render()
-      setTimeout(() => {
-        this.animMoke()
-      }, 2000)
+      // setTimeout(() => {
+      //   this.animMoke()
+      // }, 2000)
     })
     // 图表初始化
     // model1
@@ -520,6 +524,17 @@ export default {
     sun.setOption(sunOpt)
   },
   methods: {
+    flyByClick(e) {
+      const point = originList[Math.floor(Math.random() * originList.length)]
+      const color = colorList[Math.floor(Math.random() * colorList.length)]
+      new BezierCurve({
+        tag: '#canvas',
+        radius: 4,
+        color: color,
+        curveness: -0.5,
+        percent: 0
+      }).lineMove([e.clientX - 23, e.clientY - 95], point)
+    },
     animMokeFrame() {
       this.ifFinish && this.animMoke()
     },
@@ -638,7 +653,7 @@ export default {
     heatData() {
       return heatmapData.map(item => {
         return {
-          lnglat: [item.lng + 3.5, item.lat - 7.7],
+          lnglat: [item.lng + 2.4, item.lat - 8],
           value: item.count
         }
       })
@@ -814,9 +829,10 @@ export default {
     display flex
     justify-content space-around
     .img
+      display flex
       width 142px
       height 107px
-      background-color #CCC
+      justify-content center
     .row
       font-size 16px
       p

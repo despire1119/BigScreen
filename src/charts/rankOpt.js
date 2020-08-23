@@ -19,7 +19,7 @@ export default {
   legend: {
     orient: 'vertical',
     right: '1%',
-    data: ['日间', '夜间', '总量'],
+    data: ['青年', '中年', '总量'],
     textStyle: {
       color: '#FFFFFF',
       fontSize: 16
@@ -120,7 +120,7 @@ export default {
       }
     },
     {
-      name: '日间',
+      name: '青年',
       type: 'line',
       data: [
         2360,
@@ -143,7 +143,7 @@ export default {
       }
     },
     {
-      name: '夜间',
+      name: '中年',
       type: 'line',
       yAxisIndex: 1,
       data: [
