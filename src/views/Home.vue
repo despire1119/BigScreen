@@ -20,7 +20,7 @@
               <div class="data-panel">
                 <div class="to-right-line">
                   <p class="count">1595</p>
-                  <p class="des">旅客流量</p>z
+                  <p class="des">旅客流量</p>
                   <p class="chain chain-up">
                     <i>8.7%</i>
                     <span />
