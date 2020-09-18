@@ -1,4 +1,6 @@
 const state = {
+  dx: 0,
+  dy: 0,
   currentRoute: '???',
   routeMap: [
     {
@@ -21,6 +23,12 @@ const state = {
 }
 
 const mutations = {
+  UPDATE_DX: (state, payload) => {
+    state.dx = payload
+  },
+  UPDATE_DY: (state, payload) => {
+    state.dy = payload
+  },
   UPDATE_ROUTE: (state, payload) => {
     state.currentRoute = payload
   },

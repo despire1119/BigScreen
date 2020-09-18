@@ -5,6 +5,7 @@
 </template>
 <script>
 import layout from '@/layout'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -12,11 +13,12 @@ export default {
   },
   data() {
     return {
-      dx: 0,
-      dy: 0
+      // dx: 0,
+      // dy: 0
     }
   },
   computed: {
+    ...mapGetters(['dx', 'dy']),
     getRate() {
       return `transform: scale(${this.dx}, ${this.dy}); width: 1920px; height: 1080; transform-origin: 0 0;`
     }
@@ -35,8 +37,10 @@ export default {
   },
   methods: {
     autoZoom() {
-      this.dx = window.innerWidth / 1920
-      this.dy = window.innerHeight / 1080
+      this.$store.commit('base/UPDATE_DX', window.innerWidth / 1920)
+      this.$store.commit('base/UPDATE_DY', window.innerHeight / 1080)
+      // this.dx = window.innerWidth / 1920
+      // this.dy = window.innerHeight / 1080
     }
   }
 }

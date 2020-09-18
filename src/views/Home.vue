@@ -192,7 +192,7 @@
       <div class="linkage-area">
         <div class="map" style="margin-bottom: 10px">
           <div id="container" style="height: 660px" @click="flyByClick" />
-          <button class="moke" :class="{ 'if-finish': !ifFinish }" @click="animMokeFrame()">数据动画模拟</button>
+          <!-- <button class="moke" :class="{ 'if-finish': !ifFinish }" @click="animMokeFrame()">数据动画模拟</button> -->
         </div>
         <div class="model">
           <div class="panel">
@@ -525,6 +525,7 @@ import rankOpt from '@/charts/rankOpt'
 import caseOpt from '@/charts/caseOpt'
 import typeOpt from '@/charts/typeOpt'
 import { createIScroller } from '@/utils/iscrollTable'
+import { mapGetters } from 'vuex'
 
 const originList = [[80, 288], [100, 396], [133, 420], [250, 400], [280, 400], [305, 420]]
 const colorList = ['#fcff0e', '#00ffcc', '#27cefe']
@@ -542,7 +543,9 @@ export default {
       }
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters(['dx', 'dy'])
+  },
   mounted() {
     // 悬浮表头table
     this.scroll.scroller = createIScroller('.meal-table')
@@ -615,7 +618,7 @@ export default {
         color: color,
         curveness: -0.5,
         percent: 0
-      }).lineMove([e.clientX, e.clientY], point)
+      }).lineMove([e.clientX/this.dx, e.clientY/this.dy], point)
     },
     animMokeFrame() {
       this.ifFinish && this.animMoke()
