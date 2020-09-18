@@ -10,7 +10,7 @@
           <li class="range day">当日</li>
         </ul>
       </span>
-      <span class="time-stamp">2020年4月30日 12:35:33</span>
+      <span class="time-stamp">{{ timeToShow }}</span>
     </div>
     <div class="body">
       <div class="left-area" @click="getPoint">
@@ -20,7 +20,7 @@
               <div class="data-panel">
                 <div class="to-right-line">
                   <p class="count">1595</p>
-                  <p class="des">旅客流量</p>
+                  <p class="des">旅客流量</p>z
                   <p class="chain chain-up">
                     <i>8.7%</i>
                     <span />
@@ -526,6 +526,7 @@ import caseOpt from '@/charts/caseOpt'
 import typeOpt from '@/charts/typeOpt'
 import { createIScroller } from '@/utils/iscrollTable'
 import { mapGetters } from 'vuex'
+import { formatDate } from '@/utils/base'
 
 const originList = [[80, 288], [100, 396], [133, 420], [250, 400], [280, 400], [305, 420]]
 const colorList = ['#fcff0e', '#00ffcc', '#27cefe']
@@ -540,13 +541,21 @@ export default {
       ifFinish: true,
       scroll: {
         scroller: null
-      }
+      },
+      timeStamp: new Date()
     }
   },
   computed: {
-    ...mapGetters(['dx', 'dy'])
+    ...mapGetters(['dx', 'dy']),
+    timeToShow() {
+      return formatDate.format(this.timeStamp, 'y年MM月dd日 hh:mm:ss')
+    }
   },
   mounted() {
+    // 时钟
+    setInterval(() => {
+      this.timeStamp = new Date()
+    }, 1000)
     // 悬浮表头table
     this.scroll.scroller = createIScroller('.meal-table')
     this.scroll.scroller = createIScroller('.mem-table')
@@ -618,7 +627,7 @@ export default {
         color: color,
         curveness: -0.5,
         percent: 0
-      }).lineMove([e.clientX/this.dx, e.clientY/this.dy], point)
+      }).lineMove([e.clientX / this.dx, e.clientY / this.dy], point)
     },
     animMokeFrame() {
       this.ifFinish && this.animMoke()
