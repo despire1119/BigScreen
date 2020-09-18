@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     getRate() {
-      return `transform: scale(${this.dx}, ${this.dy}); width: 1920px; height: 1050; transform-origin: 0 0;`
+      return `transform: scale(${this.dx}, ${this.dy}); width: 1920px; height: 1080; transform-origin: 0 0;`
     }
   },
   created() {
@@ -36,7 +36,7 @@ export default {
   methods: {
     autoZoom() {
       this.dx = window.innerWidth / 1920
-      this.dy = window.innerHeight / 1050
+      this.dy = window.innerHeight / 1080
     }
   }
 }
