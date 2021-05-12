@@ -19,7 +19,7 @@
     "js-cookie": "^2.2.1",
     "lib-flexible": "^0.3.2",
     "nprogress": "^0.2.0",
-    "postcss": "^7.0.27",
+    "postcss": "^8.2.10",
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-px2rem": "^0.3.0",
     "px2rem": "^0.5.0",
